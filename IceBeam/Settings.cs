@@ -14,8 +14,7 @@ namespace IceBeam
         public List<Pattern> patterns = new List<Pattern>();
         public List<Script> functions = new List<Script>();
         public List<Variable> variables = new List<Variable>();
-        public List<IcePoint> points = new List<IcePoint>();
-        public List<IceArea> areas = new List<IceArea>();
+        public List<PointArea> pointareas = new List<PointArea>();
         public List<KeyScript> keyscripts = new List<KeyScript>();
         public List<PersScript> persscripts = new List<PersScript>();
     }
@@ -30,6 +29,10 @@ namespace IceBeam
         {
             bmp.Save(dirpath + category + "-" + name, System.Drawing.Imaging.ImageFormat.Png);
         }
+        public override string ToString()
+        {
+            return "[" + category + "] " + name;
+        }
 
     }
     [Serializable]
@@ -41,13 +44,27 @@ namespace IceBeam
         public void Execute(object lua_object)
         {
             Lua lua = lua_object as Lua;
-            lua.DoString(this.code);
+            try
+            {
+                lua.DoString(this.code);
+            }catch(Exception e)
+            {
+                Main.Debug(e.Message);
+            }
+        }
+        public override string ToString()
+        {
+            return name;
         }
     }
     [Serializable]
     public class KeyScript : Script
     {
         public int key = 0;
+        public override string ToString()
+        {
+            return name;
+        }
     }
     [Serializable]
     public class PersScript : Script
@@ -56,25 +73,32 @@ namespace IceBeam
         public bool loop = false;
         public int min = 1000;
         public int max = 5000;
+        public override string ToString()
+        {
+            return name + (loop ? "{" + min + " to " + max + "}" : "");
+        }
     }
     [Serializable]
     public class Variable
     {
         public string name = "";
-        public string type = "none";
         public object value = null;
+        public override string ToString()
+        {
+            return name + " - " + value.ToString();
+        }
 
     }
     [Serializable]
-    public class IcePoint
+    public class PointArea
     {
         public string name = "";
+        public int type = 0;
         public Point point = Point.Empty;
-    }
-    [Serializable]
-    public class IceArea
-    {
-        public string name = "";
-        public Rectangle area = Rectangle.Empty;
+        public Size size = Size.Empty;
+        public Rectangle GetRectangle()
+        {
+            return new Rectangle(point, size);
+        }
     }
 }

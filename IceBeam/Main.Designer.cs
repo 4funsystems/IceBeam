@@ -36,9 +36,6 @@
             this.MenuFileSaveAs = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuFileExit = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuConsole = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuHelp = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuHelpDocumentation = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuHelpAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.MainControl = new System.Windows.Forms.TabControl();
             this.ScripterTab = new System.Windows.Forms.TabPage();
             this.ScripterControl = new System.Windows.Forms.TabControl();
@@ -77,28 +74,61 @@
             this.SettingsControl = new System.Windows.Forms.TabControl();
             this.PatternsTab = new System.Windows.Forms.TabPage();
             this.PatternDetails = new System.Windows.Forms.GroupBox();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.PatternImage = new System.Windows.Forms.PictureBox();
+            this.PatternDetailsInfoPanel = new System.Windows.Forms.Panel();
+            this.PatternScreen = new System.Windows.Forms.Button();
+            this.PatternSave = new System.Windows.Forms.Button();
+            this.PatternLoad = new System.Windows.Forms.Button();
+            this.PatternCategory = new System.Windows.Forms.NumericUpDown();
+            this.label3 = new System.Windows.Forms.Label();
+            this.PatternName = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.PatternsListPanel = new System.Windows.Forms.Panel();
             this.PatternNew = new System.Windows.Forms.Button();
             this.PatternsList = new System.Windows.Forms.ListBox();
             this.PatternRemove = new System.Windows.Forms.Button();
             this.AreasPointsTab = new System.Windows.Forms.TabPage();
-            this.AreaPointDetails = new System.Windows.Forms.GroupBox();
-            this.AreasPointsListPanel = new System.Windows.Forms.Panel();
-            this.AreaPointNew = new System.Windows.Forms.Button();
-            this.AreasPointsList = new System.Windows.Forms.ListBox();
-            this.AreaPointRemove = new System.Windows.Forms.Button();
+            this.PointAreaDetails = new System.Windows.Forms.GroupBox();
+            this.PointAreaGet = new System.Windows.Forms.Button();
+            this.PointAreaSize = new System.Windows.Forms.Panel();
+            this.PointAreaH = new System.Windows.Forms.NumericUpDown();
+            this.PointAreaW = new System.Windows.Forms.NumericUpDown();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.PointAreaLocation = new System.Windows.Forms.Panel();
+            this.PointAreaY = new System.Windows.Forms.NumericUpDown();
+            this.PointAreaX = new System.Windows.Forms.NumericUpDown();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.PointAreaType = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.PointAreaName = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.PointsAreasListPanel = new System.Windows.Forms.Panel();
+            this.PointAreaNew = new System.Windows.Forms.Button();
+            this.PointsAreasList = new System.Windows.Forms.ListBox();
+            this.PointAreaRemove = new System.Windows.Forms.Button();
             this.VariablesTab = new System.Windows.Forms.TabPage();
             this.VariableDetails = new System.Windows.Forms.GroupBox();
+            this.VariableValue = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.VariableName = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
             this.VariablesListPanel = new System.Windows.Forms.Panel();
             this.VariableNew = new System.Windows.Forms.Button();
             this.VariablesList = new System.Windows.Forms.ListBox();
             this.VariableRemove = new System.Windows.Forms.Button();
             this.FunctionsTab = new System.Windows.Forms.TabPage();
             this.FunctionDetails = new System.Windows.Forms.GroupBox();
+            this.FunctionCode = new System.Windows.Forms.RichTextBox();
+            this.FunctionDetailsInfoPanel = new System.Windows.Forms.Panel();
+            this.label17 = new System.Windows.Forms.Label();
+            this.FunctionName = new System.Windows.Forms.TextBox();
             this.FunctionsListPanel = new System.Windows.Forms.Panel();
             this.FunctionNew = new System.Windows.Forms.Button();
-            this.FunctionsList = new System.Windows.Forms.ListBox();
             this.RemoveNew = new System.Windows.Forms.Button();
+            this.FunctionsList = new System.Windows.Forms.ListBox();
             this.TopMenu.SuspendLayout();
             this.MainControl.SuspendLayout();
             this.ScripterTab.SuspendLayout();
@@ -117,12 +147,27 @@
             this.SettingsTab.SuspendLayout();
             this.SettingsControl.SuspendLayout();
             this.PatternsTab.SuspendLayout();
+            this.PatternDetails.SuspendLayout();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PatternImage)).BeginInit();
+            this.PatternDetailsInfoPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PatternCategory)).BeginInit();
             this.PatternsListPanel.SuspendLayout();
             this.AreasPointsTab.SuspendLayout();
-            this.AreasPointsListPanel.SuspendLayout();
+            this.PointAreaDetails.SuspendLayout();
+            this.PointAreaSize.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PointAreaH)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PointAreaW)).BeginInit();
+            this.PointAreaLocation.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PointAreaY)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PointAreaX)).BeginInit();
+            this.PointsAreasListPanel.SuspendLayout();
             this.VariablesTab.SuspendLayout();
+            this.VariableDetails.SuspendLayout();
             this.VariablesListPanel.SuspendLayout();
             this.FunctionsTab.SuspendLayout();
+            this.FunctionDetails.SuspendLayout();
+            this.FunctionDetailsInfoPanel.SuspendLayout();
             this.FunctionsListPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -131,8 +176,7 @@
             this.TopMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.TopMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MenuFile,
-            this.MenuConsole,
-            this.MenuHelp});
+            this.MenuConsole});
             this.TopMenu.Location = new System.Drawing.Point(0, 0);
             this.TopMenu.Name = "TopMenu";
             this.TopMenu.Size = new System.Drawing.Size(981, 28);
@@ -156,57 +200,42 @@
             this.MenuFileNew.Name = "MenuFileNew";
             this.MenuFileNew.Size = new System.Drawing.Size(150, 26);
             this.MenuFileNew.Text = "New";
+            this.MenuFileNew.Click += new System.EventHandler(this.MenuFileNew_Click);
             // 
             // MenuFileLoad
             // 
             this.MenuFileLoad.Name = "MenuFileLoad";
             this.MenuFileLoad.Size = new System.Drawing.Size(150, 26);
             this.MenuFileLoad.Text = "Load";
+            this.MenuFileLoad.Click += new System.EventHandler(this.MenuFileLoad_Click);
             // 
             // MenuFileSave
             // 
             this.MenuFileSave.Name = "MenuFileSave";
             this.MenuFileSave.Size = new System.Drawing.Size(150, 26);
             this.MenuFileSave.Text = "Save";
+            this.MenuFileSave.Click += new System.EventHandler(this.MenuFileSave_Click);
             // 
             // MenuFileSaveAs
             // 
             this.MenuFileSaveAs.Name = "MenuFileSaveAs";
             this.MenuFileSaveAs.Size = new System.Drawing.Size(150, 26);
             this.MenuFileSaveAs.Text = "Save as...";
+            this.MenuFileSaveAs.Click += new System.EventHandler(this.MenuFileSaveAs_Click);
             // 
             // MenuFileExit
             // 
             this.MenuFileExit.Name = "MenuFileExit";
             this.MenuFileExit.Size = new System.Drawing.Size(150, 26);
             this.MenuFileExit.Text = "Exit";
+            this.MenuFileExit.Click += new System.EventHandler(this.MenuFileExit_Click);
             // 
             // MenuConsole
             // 
             this.MenuConsole.Name = "MenuConsole";
             this.MenuConsole.Size = new System.Drawing.Size(76, 24);
             this.MenuConsole.Text = "Console";
-            // 
-            // MenuHelp
-            // 
-            this.MenuHelp.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.MenuHelpDocumentation,
-            this.MenuHelpAbout});
-            this.MenuHelp.Name = "MenuHelp";
-            this.MenuHelp.Size = new System.Drawing.Size(55, 24);
-            this.MenuHelp.Text = "Help";
-            // 
-            // MenuHelpDocumentation
-            // 
-            this.MenuHelpDocumentation.Name = "MenuHelpDocumentation";
-            this.MenuHelpDocumentation.Size = new System.Drawing.Size(195, 26);
-            this.MenuHelpDocumentation.Text = "Documentation";
-            // 
-            // MenuHelpAbout
-            // 
-            this.MenuHelpAbout.Name = "MenuHelpAbout";
-            this.MenuHelpAbout.Size = new System.Drawing.Size(195, 26);
-            this.MenuHelpAbout.Text = "About";
+            this.MenuConsole.Click += new System.EventHandler(this.MenuConsole_Click);
             // 
             // MainControl
             // 
@@ -606,6 +635,8 @@
             // 
             // PatternDetails
             // 
+            this.PatternDetails.Controls.Add(this.panel4);
+            this.PatternDetails.Controls.Add(this.PatternDetailsInfoPanel);
             this.PatternDetails.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PatternDetails.Location = new System.Drawing.Point(303, 3);
             this.PatternDetails.Name = "PatternDetails";
@@ -614,6 +645,98 @@
             this.PatternDetails.TabStop = false;
             this.PatternDetails.Text = "Pattern details";
             this.PatternDetails.Visible = false;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.PatternImage);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(3, 87);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(647, 298);
+            this.panel4.TabIndex = 11;
+            // 
+            // PatternImage
+            // 
+            this.PatternImage.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PatternImage.Location = new System.Drawing.Point(0, 0);
+            this.PatternImage.Name = "PatternImage";
+            this.PatternImage.Size = new System.Drawing.Size(647, 298);
+            this.PatternImage.TabIndex = 10;
+            this.PatternImage.TabStop = false;
+            // 
+            // PatternDetailsInfoPanel
+            // 
+            this.PatternDetailsInfoPanel.Controls.Add(this.PatternScreen);
+            this.PatternDetailsInfoPanel.Controls.Add(this.PatternSave);
+            this.PatternDetailsInfoPanel.Controls.Add(this.PatternLoad);
+            this.PatternDetailsInfoPanel.Controls.Add(this.PatternCategory);
+            this.PatternDetailsInfoPanel.Controls.Add(this.label3);
+            this.PatternDetailsInfoPanel.Controls.Add(this.PatternName);
+            this.PatternDetailsInfoPanel.Controls.Add(this.label2);
+            this.PatternDetailsInfoPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PatternDetailsInfoPanel.Location = new System.Drawing.Point(3, 18);
+            this.PatternDetailsInfoPanel.Name = "PatternDetailsInfoPanel";
+            this.PatternDetailsInfoPanel.Size = new System.Drawing.Size(647, 69);
+            this.PatternDetailsInfoPanel.TabIndex = 10;
+            // 
+            // PatternScreen
+            // 
+            this.PatternScreen.Location = new System.Drawing.Point(131, 40);
+            this.PatternScreen.Name = "PatternScreen";
+            this.PatternScreen.Size = new System.Drawing.Size(118, 23);
+            this.PatternScreen.TabIndex = 12;
+            this.PatternScreen.Text = "Get from screen";
+            this.PatternScreen.UseVisualStyleBackColor = true;
+            // 
+            // PatternSave
+            // 
+            this.PatternSave.Location = new System.Drawing.Point(255, 40);
+            this.PatternSave.Name = "PatternSave";
+            this.PatternSave.Size = new System.Drawing.Size(118, 23);
+            this.PatternSave.TabIndex = 7;
+            this.PatternSave.Text = "Save to file";
+            this.PatternSave.UseVisualStyleBackColor = true;
+            // 
+            // PatternLoad
+            // 
+            this.PatternLoad.Location = new System.Drawing.Point(7, 40);
+            this.PatternLoad.Name = "PatternLoad";
+            this.PatternLoad.Size = new System.Drawing.Size(118, 23);
+            this.PatternLoad.TabIndex = 11;
+            this.PatternLoad.Text = "Load from file";
+            this.PatternLoad.UseVisualStyleBackColor = true;
+            // 
+            // PatternCategory
+            // 
+            this.PatternCategory.Location = new System.Drawing.Point(433, 12);
+            this.PatternCategory.Name = "PatternCategory";
+            this.PatternCategory.Size = new System.Drawing.Size(42, 22);
+            this.PatternCategory.TabIndex = 10;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(362, 14);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(65, 17);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Category";
+            // 
+            // PatternName
+            // 
+            this.PatternName.Location = new System.Drawing.Point(59, 11);
+            this.PatternName.Name = "PatternName";
+            this.PatternName.Size = new System.Drawing.Size(255, 22);
+            this.PatternName.TabIndex = 8;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(8, 14);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(45, 17);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Name";
             // 
             // PatternsListPanel
             // 
@@ -657,8 +780,8 @@
             // 
             // AreasPointsTab
             // 
-            this.AreasPointsTab.Controls.Add(this.AreaPointDetails);
-            this.AreasPointsTab.Controls.Add(this.AreasPointsListPanel);
+            this.AreasPointsTab.Controls.Add(this.PointAreaDetails);
+            this.AreasPointsTab.Controls.Add(this.PointsAreasListPanel);
             this.AreasPointsTab.Location = new System.Drawing.Point(4, 25);
             this.AreasPointsTab.Name = "AreasPointsTab";
             this.AreasPointsTab.Padding = new System.Windows.Forms.Padding(3);
@@ -667,56 +790,191 @@
             this.AreasPointsTab.Text = "Areas and points";
             this.AreasPointsTab.UseVisualStyleBackColor = true;
             // 
-            // AreaPointDetails
+            // PointAreaDetails
             // 
-            this.AreaPointDetails.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.AreaPointDetails.Location = new System.Drawing.Point(303, 3);
-            this.AreaPointDetails.Name = "AreaPointDetails";
-            this.AreaPointDetails.Size = new System.Drawing.Size(653, 388);
-            this.AreaPointDetails.TabIndex = 9;
-            this.AreaPointDetails.TabStop = false;
-            this.AreaPointDetails.Text = "Area / Point details";
-            this.AreaPointDetails.Visible = false;
+            this.PointAreaDetails.Controls.Add(this.PointAreaGet);
+            this.PointAreaDetails.Controls.Add(this.PointAreaSize);
+            this.PointAreaDetails.Controls.Add(this.PointAreaLocation);
+            this.PointAreaDetails.Controls.Add(this.PointAreaType);
+            this.PointAreaDetails.Controls.Add(this.label8);
+            this.PointAreaDetails.Controls.Add(this.PointAreaName);
+            this.PointAreaDetails.Controls.Add(this.label5);
+            this.PointAreaDetails.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PointAreaDetails.Location = new System.Drawing.Point(303, 3);
+            this.PointAreaDetails.Name = "PointAreaDetails";
+            this.PointAreaDetails.Size = new System.Drawing.Size(653, 388);
+            this.PointAreaDetails.TabIndex = 9;
+            this.PointAreaDetails.TabStop = false;
+            this.PointAreaDetails.Text = "Area / Point details";
+            this.PointAreaDetails.Visible = false;
             // 
-            // AreasPointsListPanel
+            // PointAreaGet
             // 
-            this.AreasPointsListPanel.Controls.Add(this.AreaPointNew);
-            this.AreasPointsListPanel.Controls.Add(this.AreasPointsList);
-            this.AreasPointsListPanel.Controls.Add(this.AreaPointRemove);
-            this.AreasPointsListPanel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.AreasPointsListPanel.Location = new System.Drawing.Point(3, 3);
-            this.AreasPointsListPanel.Name = "AreasPointsListPanel";
-            this.AreasPointsListPanel.Size = new System.Drawing.Size(300, 388);
-            this.AreasPointsListPanel.TabIndex = 8;
+            this.PointAreaGet.Location = new System.Drawing.Point(446, 21);
+            this.PointAreaGet.Name = "PointAreaGet";
+            this.PointAreaGet.Size = new System.Drawing.Size(122, 23);
+            this.PointAreaGet.TabIndex = 7;
+            this.PointAreaGet.Text = "Get from screen";
+            this.PointAreaGet.UseVisualStyleBackColor = true;
             // 
-            // AreaPointNew
+            // PointAreaSize
             // 
-            this.AreaPointNew.Location = new System.Drawing.Point(192, 3);
-            this.AreaPointNew.Name = "AreaPointNew";
-            this.AreaPointNew.Size = new System.Drawing.Size(105, 27);
-            this.AreaPointNew.TabIndex = 1;
-            this.AreaPointNew.Text = "New";
-            this.AreaPointNew.UseVisualStyleBackColor = true;
+            this.PointAreaSize.Controls.Add(this.PointAreaH);
+            this.PointAreaSize.Controls.Add(this.PointAreaW);
+            this.PointAreaSize.Controls.Add(this.label13);
+            this.PointAreaSize.Controls.Add(this.label14);
+            this.PointAreaSize.Location = new System.Drawing.Point(6, 103);
+            this.PointAreaSize.Name = "PointAreaSize";
+            this.PointAreaSize.Size = new System.Drawing.Size(439, 42);
+            this.PointAreaSize.TabIndex = 5;
             // 
-            // AreasPointsList
+            // PointAreaH
             // 
-            this.AreasPointsList.Dock = System.Windows.Forms.DockStyle.Left;
-            this.AreasPointsList.FormattingEnabled = true;
-            this.AreasPointsList.ItemHeight = 16;
-            this.AreasPointsList.Location = new System.Drawing.Point(0, 0);
-            this.AreasPointsList.Name = "AreasPointsList";
-            this.AreasPointsList.Size = new System.Drawing.Size(186, 388);
-            this.AreasPointsList.TabIndex = 0;
+            this.PointAreaH.Location = new System.Drawing.Point(286, 10);
+            this.PointAreaH.Name = "PointAreaH";
+            this.PointAreaH.Size = new System.Drawing.Size(120, 22);
+            this.PointAreaH.TabIndex = 3;
             // 
-            // AreaPointRemove
+            // PointAreaW
             // 
-            this.AreaPointRemove.Location = new System.Drawing.Point(192, 36);
-            this.AreaPointRemove.Name = "AreaPointRemove";
-            this.AreaPointRemove.Size = new System.Drawing.Size(105, 29);
-            this.AreaPointRemove.TabIndex = 2;
-            this.AreaPointRemove.Text = "Remove";
-            this.AreaPointRemove.UseVisualStyleBackColor = true;
-            this.AreaPointRemove.Visible = false;
+            this.PointAreaW.Location = new System.Drawing.Point(62, 10);
+            this.PointAreaW.Name = "PointAreaW";
+            this.PointAreaW.Size = new System.Drawing.Size(120, 22);
+            this.PointAreaW.TabIndex = 2;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(235, 12);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(49, 17);
+            this.label13.TabIndex = 1;
+            this.label13.Text = "Height";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(10, 12);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(44, 17);
+            this.label14.TabIndex = 0;
+            this.label14.Text = "Width";
+            // 
+            // PointAreaLocation
+            // 
+            this.PointAreaLocation.Controls.Add(this.PointAreaY);
+            this.PointAreaLocation.Controls.Add(this.PointAreaX);
+            this.PointAreaLocation.Controls.Add(this.label10);
+            this.PointAreaLocation.Controls.Add(this.label9);
+            this.PointAreaLocation.Location = new System.Drawing.Point(7, 55);
+            this.PointAreaLocation.Name = "PointAreaLocation";
+            this.PointAreaLocation.Size = new System.Drawing.Size(439, 42);
+            this.PointAreaLocation.TabIndex = 4;
+            // 
+            // PointAreaY
+            // 
+            this.PointAreaY.Location = new System.Drawing.Point(286, 10);
+            this.PointAreaY.Name = "PointAreaY";
+            this.PointAreaY.Size = new System.Drawing.Size(120, 22);
+            this.PointAreaY.TabIndex = 3;
+            // 
+            // PointAreaX
+            // 
+            this.PointAreaX.Location = new System.Drawing.Point(62, 10);
+            this.PointAreaX.Name = "PointAreaX";
+            this.PointAreaX.Size = new System.Drawing.Size(120, 22);
+            this.PointAreaX.TabIndex = 2;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(235, 12);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(45, 17);
+            this.label10.TabIndex = 1;
+            this.label10.Text = "Pos Y";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(10, 12);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(45, 17);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "Pos X";
+            // 
+            // PointAreaType
+            // 
+            this.PointAreaType.FormattingEnabled = true;
+            this.PointAreaType.Location = new System.Drawing.Point(320, 21);
+            this.PointAreaType.Name = "PointAreaType";
+            this.PointAreaType.Size = new System.Drawing.Size(121, 24);
+            this.PointAreaType.TabIndex = 3;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(273, 24);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(40, 17);
+            this.label8.TabIndex = 2;
+            this.label8.Text = "Type";
+            // 
+            // PointAreaName
+            // 
+            this.PointAreaName.Location = new System.Drawing.Point(69, 21);
+            this.PointAreaName.Name = "PointAreaName";
+            this.PointAreaName.Size = new System.Drawing.Size(173, 22);
+            this.PointAreaName.TabIndex = 1;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(17, 24);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(45, 17);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Name";
+            // 
+            // PointsAreasListPanel
+            // 
+            this.PointsAreasListPanel.Controls.Add(this.PointAreaNew);
+            this.PointsAreasListPanel.Controls.Add(this.PointsAreasList);
+            this.PointsAreasListPanel.Controls.Add(this.PointAreaRemove);
+            this.PointsAreasListPanel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.PointsAreasListPanel.Location = new System.Drawing.Point(3, 3);
+            this.PointsAreasListPanel.Name = "PointsAreasListPanel";
+            this.PointsAreasListPanel.Size = new System.Drawing.Size(300, 388);
+            this.PointsAreasListPanel.TabIndex = 8;
+            // 
+            // PointAreaNew
+            // 
+            this.PointAreaNew.Location = new System.Drawing.Point(192, 3);
+            this.PointAreaNew.Name = "PointAreaNew";
+            this.PointAreaNew.Size = new System.Drawing.Size(105, 27);
+            this.PointAreaNew.TabIndex = 1;
+            this.PointAreaNew.Text = "New";
+            this.PointAreaNew.UseVisualStyleBackColor = true;
+            // 
+            // PointsAreasList
+            // 
+            this.PointsAreasList.Dock = System.Windows.Forms.DockStyle.Left;
+            this.PointsAreasList.FormattingEnabled = true;
+            this.PointsAreasList.ItemHeight = 16;
+            this.PointsAreasList.Location = new System.Drawing.Point(0, 0);
+            this.PointsAreasList.Name = "PointsAreasList";
+            this.PointsAreasList.Size = new System.Drawing.Size(186, 388);
+            this.PointsAreasList.TabIndex = 0;
+            // 
+            // PointAreaRemove
+            // 
+            this.PointAreaRemove.Location = new System.Drawing.Point(192, 36);
+            this.PointAreaRemove.Name = "PointAreaRemove";
+            this.PointAreaRemove.Size = new System.Drawing.Size(105, 29);
+            this.PointAreaRemove.TabIndex = 2;
+            this.PointAreaRemove.Text = "Remove";
+            this.PointAreaRemove.UseVisualStyleBackColor = true;
+            this.PointAreaRemove.Visible = false;
             // 
             // VariablesTab
             // 
@@ -732,6 +990,10 @@
             // 
             // VariableDetails
             // 
+            this.VariableDetails.Controls.Add(this.VariableValue);
+            this.VariableDetails.Controls.Add(this.label16);
+            this.VariableDetails.Controls.Add(this.VariableName);
+            this.VariableDetails.Controls.Add(this.label15);
             this.VariableDetails.Dock = System.Windows.Forms.DockStyle.Fill;
             this.VariableDetails.Location = new System.Drawing.Point(303, 3);
             this.VariableDetails.Name = "VariableDetails";
@@ -740,6 +1002,38 @@
             this.VariableDetails.TabStop = false;
             this.VariableDetails.Text = "Variable details";
             this.VariableDetails.Visible = false;
+            // 
+            // VariableValue
+            // 
+            this.VariableValue.Location = new System.Drawing.Point(57, 55);
+            this.VariableValue.Name = "VariableValue";
+            this.VariableValue.Size = new System.Drawing.Size(220, 22);
+            this.VariableValue.TabIndex = 3;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(6, 58);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(44, 17);
+            this.label16.TabIndex = 2;
+            this.label16.Text = "Value";
+            // 
+            // VariableName
+            // 
+            this.VariableName.Location = new System.Drawing.Point(57, 21);
+            this.VariableName.Name = "VariableName";
+            this.VariableName.Size = new System.Drawing.Size(220, 22);
+            this.VariableName.TabIndex = 1;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(6, 24);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(45, 17);
+            this.label15.TabIndex = 0;
+            this.label15.Text = "Name";
             // 
             // VariablesListPanel
             // 
@@ -795,6 +1089,8 @@
             // 
             // FunctionDetails
             // 
+            this.FunctionDetails.Controls.Add(this.FunctionCode);
+            this.FunctionDetails.Controls.Add(this.FunctionDetailsInfoPanel);
             this.FunctionDetails.Dock = System.Windows.Forms.DockStyle.Fill;
             this.FunctionDetails.Location = new System.Drawing.Point(303, 3);
             this.FunctionDetails.Name = "FunctionDetails";
@@ -804,10 +1100,46 @@
             this.FunctionDetails.Text = "Function details";
             this.FunctionDetails.Visible = false;
             // 
+            // FunctionCode
+            // 
+            this.FunctionCode.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.FunctionCode.Location = new System.Drawing.Point(3, 63);
+            this.FunctionCode.Name = "FunctionCode";
+            this.FunctionCode.Size = new System.Drawing.Size(647, 322);
+            this.FunctionCode.TabIndex = 9;
+            this.FunctionCode.Text = "";
+            // 
+            // FunctionDetailsInfoPanel
+            // 
+            this.FunctionDetailsInfoPanel.AutoScroll = true;
+            this.FunctionDetailsInfoPanel.Controls.Add(this.label17);
+            this.FunctionDetailsInfoPanel.Controls.Add(this.FunctionName);
+            this.FunctionDetailsInfoPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.FunctionDetailsInfoPanel.Location = new System.Drawing.Point(3, 18);
+            this.FunctionDetailsInfoPanel.Name = "FunctionDetailsInfoPanel";
+            this.FunctionDetailsInfoPanel.Size = new System.Drawing.Size(647, 45);
+            this.FunctionDetailsInfoPanel.TabIndex = 8;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(14, 12);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(49, 17);
+            this.label17.TabIndex = 0;
+            this.label17.Text = "Name:";
+            // 
+            // FunctionName
+            // 
+            this.FunctionName.Location = new System.Drawing.Point(69, 9);
+            this.FunctionName.Name = "FunctionName";
+            this.FunctionName.Size = new System.Drawing.Size(228, 22);
+            this.FunctionName.TabIndex = 1;
+            // 
             // FunctionsListPanel
             // 
-            this.FunctionsListPanel.Controls.Add(this.FunctionNew);
             this.FunctionsListPanel.Controls.Add(this.FunctionsList);
+            this.FunctionsListPanel.Controls.Add(this.FunctionNew);
             this.FunctionsListPanel.Controls.Add(this.RemoveNew);
             this.FunctionsListPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.FunctionsListPanel.Location = new System.Drawing.Point(3, 3);
@@ -824,16 +1156,6 @@
             this.FunctionNew.Text = "New";
             this.FunctionNew.UseVisualStyleBackColor = true;
             // 
-            // FunctionsList
-            // 
-            this.FunctionsList.Dock = System.Windows.Forms.DockStyle.Left;
-            this.FunctionsList.FormattingEnabled = true;
-            this.FunctionsList.ItemHeight = 16;
-            this.FunctionsList.Location = new System.Drawing.Point(0, 0);
-            this.FunctionsList.Name = "FunctionsList";
-            this.FunctionsList.Size = new System.Drawing.Size(186, 388);
-            this.FunctionsList.TabIndex = 0;
-            // 
             // RemoveNew
             // 
             this.RemoveNew.Location = new System.Drawing.Point(192, 36);
@@ -843,6 +1165,16 @@
             this.RemoveNew.Text = "Remove";
             this.RemoveNew.UseVisualStyleBackColor = true;
             this.RemoveNew.Visible = false;
+            // 
+            // FunctionsList
+            // 
+            this.FunctionsList.Dock = System.Windows.Forms.DockStyle.Left;
+            this.FunctionsList.FormattingEnabled = true;
+            this.FunctionsList.ItemHeight = 16;
+            this.FunctionsList.Location = new System.Drawing.Point(0, 0);
+            this.FunctionsList.Name = "FunctionsList";
+            this.FunctionsList.Size = new System.Drawing.Size(191, 388);
+            this.FunctionsList.TabIndex = 3;
             // 
             // Main
             // 
@@ -854,7 +1186,6 @@
             this.MainMenuStrip = this.TopMenu;
             this.Name = "Main";
             this.Text = "IceBeam";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.TopMenu.ResumeLayout(false);
             this.TopMenu.PerformLayout();
             this.MainControl.ResumeLayout(false);
@@ -877,12 +1208,33 @@
             this.SettingsTab.ResumeLayout(false);
             this.SettingsControl.ResumeLayout(false);
             this.PatternsTab.ResumeLayout(false);
+            this.PatternDetails.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PatternImage)).EndInit();
+            this.PatternDetailsInfoPanel.ResumeLayout(false);
+            this.PatternDetailsInfoPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PatternCategory)).EndInit();
             this.PatternsListPanel.ResumeLayout(false);
             this.AreasPointsTab.ResumeLayout(false);
-            this.AreasPointsListPanel.ResumeLayout(false);
+            this.PointAreaDetails.ResumeLayout(false);
+            this.PointAreaDetails.PerformLayout();
+            this.PointAreaSize.ResumeLayout(false);
+            this.PointAreaSize.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PointAreaH)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PointAreaW)).EndInit();
+            this.PointAreaLocation.ResumeLayout(false);
+            this.PointAreaLocation.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PointAreaY)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PointAreaX)).EndInit();
+            this.PointsAreasListPanel.ResumeLayout(false);
             this.VariablesTab.ResumeLayout(false);
+            this.VariableDetails.ResumeLayout(false);
+            this.VariableDetails.PerformLayout();
             this.VariablesListPanel.ResumeLayout(false);
             this.FunctionsTab.ResumeLayout(false);
+            this.FunctionDetails.ResumeLayout(false);
+            this.FunctionDetailsInfoPanel.ResumeLayout(false);
+            this.FunctionDetailsInfoPanel.PerformLayout();
             this.FunctionsListPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -898,7 +1250,6 @@
         private System.Windows.Forms.ToolStripMenuItem MenuFileSave;
         private System.Windows.Forms.ToolStripMenuItem MenuFileSaveAs;
         private System.Windows.Forms.ToolStripMenuItem MenuFileExit;
-        private System.Windows.Forms.ToolStripMenuItem MenuHelp;
         private System.Windows.Forms.TabControl MainControl;
         private System.Windows.Forms.TabPage ScripterTab;
         private System.Windows.Forms.TabPage SettingsTab;
@@ -944,11 +1295,11 @@
         private System.Windows.Forms.Button PatternNew;
         private System.Windows.Forms.ListBox PatternsList;
         private System.Windows.Forms.Button PatternRemove;
-        private System.Windows.Forms.GroupBox AreaPointDetails;
-        private System.Windows.Forms.Panel AreasPointsListPanel;
-        private System.Windows.Forms.Button AreaPointNew;
-        private System.Windows.Forms.ListBox AreasPointsList;
-        private System.Windows.Forms.Button AreaPointRemove;
+        private System.Windows.Forms.GroupBox PointAreaDetails;
+        private System.Windows.Forms.Panel PointsAreasListPanel;
+        private System.Windows.Forms.Button PointAreaNew;
+        private System.Windows.Forms.ListBox PointsAreasList;
+        private System.Windows.Forms.Button PointAreaRemove;
         private System.Windows.Forms.GroupBox VariableDetails;
         private System.Windows.Forms.Panel VariablesListPanel;
         private System.Windows.Forms.Button VariableNew;
@@ -957,11 +1308,42 @@
         private System.Windows.Forms.GroupBox FunctionDetails;
         private System.Windows.Forms.Panel FunctionsListPanel;
         private System.Windows.Forms.Button FunctionNew;
-        private System.Windows.Forms.ListBox FunctionsList;
         private System.Windows.Forms.Button RemoveNew;
         private System.Windows.Forms.ToolStripMenuItem MenuConsole;
-        private System.Windows.Forms.ToolStripMenuItem MenuHelpDocumentation;
-        private System.Windows.Forms.ToolStripMenuItem MenuHelpAbout;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.PictureBox PatternImage;
+        private System.Windows.Forms.Panel PatternDetailsInfoPanel;
+        private System.Windows.Forms.Button PatternScreen;
+        private System.Windows.Forms.Button PatternSave;
+        private System.Windows.Forms.Button PatternLoad;
+        private System.Windows.Forms.NumericUpDown PatternCategory;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox PatternName;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button PointAreaGet;
+        private System.Windows.Forms.Panel PointAreaSize;
+        private System.Windows.Forms.NumericUpDown PointAreaH;
+        private System.Windows.Forms.NumericUpDown PointAreaW;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Panel PointAreaLocation;
+        private System.Windows.Forms.NumericUpDown PointAreaY;
+        private System.Windows.Forms.NumericUpDown PointAreaX;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox PointAreaType;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox PointAreaName;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox VariableValue;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox VariableName;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.RichTextBox FunctionCode;
+        private System.Windows.Forms.Panel FunctionDetailsInfoPanel;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TextBox FunctionName;
+        private System.Windows.Forms.ListBox FunctionsList;
     }
 }
 

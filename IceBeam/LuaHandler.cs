@@ -14,7 +14,7 @@ namespace IceBeam
     public class LuaHandler
     {
         public IceCore.IceCore core = new IceCore.IceCore();
-        public Settings settings = new Settings();
+        public Settings settings;
         public Lua lua;
         public Thread executing_thread;
         public BaseLibrary baselib;
@@ -22,19 +22,23 @@ namespace IceBeam
         public LuaHandler(Main m)
         {
             this.main = m;
-            lua = new Lua();
+            Reset();
         }
         public void LoadSettings(string path)
         {
-
-            lua = new Lua();
-            Initialize();
         }
         public void SaveSettings(string path)
         {
-
         }
 
+        public void Reset()
+        {
+            lua = new Lua();
+            settings = new Settings();
+            main.UpdateForm(settings);
+            Initialize();
+
+        }
 
 
         public async void Initialize()
@@ -66,11 +70,11 @@ namespace IceBeam
         }
         public void Debug(string s)
         {
-            main.console.Write(s);
+            Main.Debug(s);
         }
         public void Clear()
         {
-            main.console.Clear();
+            Main.Clear();
         }
         public void RegisterUserVariables()
         {
@@ -80,17 +84,16 @@ namespace IceBeam
             {
                 lua["$"+v.name] = v.value;
             }
-            foreach (IcePoint p in settings.points)
+            foreach (PointArea pa in settings.pointareas)
             {
-                lua["point_" + p.name] = p.point;
-            }
-            foreach (IceArea a in settings.areas)
-            {
-                lua["area_" + a.name] = a.area;
+                if (pa.type == 1)
+                    lua["point_" + pa.name] = pa.point;
+                else
+                    lua["area_" + pa.name] = pa.GetRectangle();
             }
         }
 
-        public void ExecuteString(string s)
+        public void ExecuteText(string s)
         {
             ParameterizedThreadStart ts = new ParameterizedThreadStart(Execute);
             Thread t = new Thread(ts);
@@ -104,7 +107,7 @@ namespace IceBeam
             }
             catch (Exception e)
             {
-
+                Main.Debug(e.Message);
             }
         }
 
