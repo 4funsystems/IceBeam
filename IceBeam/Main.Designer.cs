@@ -35,7 +35,10 @@
             this.MenuFileSave = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuFileSaveAs = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuFileExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuConsole = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuHelp = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuHelpDocumentation = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuHelpAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.MainControl = new System.Windows.Forms.TabControl();
             this.ScripterTab = new System.Windows.Forms.TabPage();
             this.ScripterControl = new System.Windows.Forms.TabControl();
@@ -47,8 +50,6 @@
             this.KeyScriptKey = new System.Windows.Forms.Label();
             this.KeyScriptName = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.KeyScriptStatus = new System.Windows.Forms.Label();
             this.KeyScriptsListPanel = new System.Windows.Forms.Panel();
             this.KeyScriptNew = new System.Windows.Forms.Button();
             this.KeyScriptsList = new System.Windows.Forms.ListBox();
@@ -75,32 +76,29 @@
             this.SettingsTab = new System.Windows.Forms.TabPage();
             this.SettingsControl = new System.Windows.Forms.TabControl();
             this.PatternsTab = new System.Windows.Forms.TabPage();
-            this.AreasPointsTab = new System.Windows.Forms.TabPage();
-            this.VariablesTab = new System.Windows.Forms.TabPage();
-            this.FunctionsTab = new System.Windows.Forms.TabPage();
-            this.FunctionsListPanel = new System.Windows.Forms.Panel();
-            this.FunctionNew = new System.Windows.Forms.Button();
-            this.FunctionsList = new System.Windows.Forms.ListBox();
-            this.RemoveNew = new System.Windows.Forms.Button();
-            this.FunctionDetails = new System.Windows.Forms.GroupBox();
             this.PatternDetails = new System.Windows.Forms.GroupBox();
             this.PatternsListPanel = new System.Windows.Forms.Panel();
             this.PatternNew = new System.Windows.Forms.Button();
             this.PatternsList = new System.Windows.Forms.ListBox();
             this.PatternRemove = new System.Windows.Forms.Button();
+            this.AreasPointsTab = new System.Windows.Forms.TabPage();
             this.AreaPointDetails = new System.Windows.Forms.GroupBox();
             this.AreasPointsListPanel = new System.Windows.Forms.Panel();
             this.AreaPointNew = new System.Windows.Forms.Button();
             this.AreasPointsList = new System.Windows.Forms.ListBox();
             this.AreaPointRemove = new System.Windows.Forms.Button();
+            this.VariablesTab = new System.Windows.Forms.TabPage();
             this.VariableDetails = new System.Windows.Forms.GroupBox();
             this.VariablesListPanel = new System.Windows.Forms.Panel();
             this.VariableNew = new System.Windows.Forms.Button();
             this.VariablesList = new System.Windows.Forms.ListBox();
             this.VariableRemove = new System.Windows.Forms.Button();
-            this.MenuConsole = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuHelpDocumentation = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuHelpAbout = new System.Windows.Forms.ToolStripMenuItem();
+            this.FunctionsTab = new System.Windows.Forms.TabPage();
+            this.FunctionDetails = new System.Windows.Forms.GroupBox();
+            this.FunctionsListPanel = new System.Windows.Forms.Panel();
+            this.FunctionNew = new System.Windows.Forms.Button();
+            this.FunctionsList = new System.Windows.Forms.ListBox();
+            this.RemoveNew = new System.Windows.Forms.Button();
             this.TopMenu.SuspendLayout();
             this.MainControl.SuspendLayout();
             this.ScripterTab.SuspendLayout();
@@ -119,13 +117,13 @@
             this.SettingsTab.SuspendLayout();
             this.SettingsControl.SuspendLayout();
             this.PatternsTab.SuspendLayout();
+            this.PatternsListPanel.SuspendLayout();
             this.AreasPointsTab.SuspendLayout();
+            this.AreasPointsListPanel.SuspendLayout();
             this.VariablesTab.SuspendLayout();
+            this.VariablesListPanel.SuspendLayout();
             this.FunctionsTab.SuspendLayout();
             this.FunctionsListPanel.SuspendLayout();
-            this.PatternsListPanel.SuspendLayout();
-            this.AreasPointsListPanel.SuspendLayout();
-            this.VariablesListPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // TopMenu
@@ -156,32 +154,38 @@
             // MenuFileNew
             // 
             this.MenuFileNew.Name = "MenuFileNew";
-            this.MenuFileNew.Size = new System.Drawing.Size(224, 26);
+            this.MenuFileNew.Size = new System.Drawing.Size(150, 26);
             this.MenuFileNew.Text = "New";
             // 
             // MenuFileLoad
             // 
             this.MenuFileLoad.Name = "MenuFileLoad";
-            this.MenuFileLoad.Size = new System.Drawing.Size(224, 26);
+            this.MenuFileLoad.Size = new System.Drawing.Size(150, 26);
             this.MenuFileLoad.Text = "Load";
             // 
             // MenuFileSave
             // 
             this.MenuFileSave.Name = "MenuFileSave";
-            this.MenuFileSave.Size = new System.Drawing.Size(224, 26);
+            this.MenuFileSave.Size = new System.Drawing.Size(150, 26);
             this.MenuFileSave.Text = "Save";
             // 
             // MenuFileSaveAs
             // 
             this.MenuFileSaveAs.Name = "MenuFileSaveAs";
-            this.MenuFileSaveAs.Size = new System.Drawing.Size(224, 26);
+            this.MenuFileSaveAs.Size = new System.Drawing.Size(150, 26);
             this.MenuFileSaveAs.Text = "Save as...";
             // 
             // MenuFileExit
             // 
             this.MenuFileExit.Name = "MenuFileExit";
-            this.MenuFileExit.Size = new System.Drawing.Size(224, 26);
+            this.MenuFileExit.Size = new System.Drawing.Size(150, 26);
             this.MenuFileExit.Text = "Exit";
+            // 
+            // MenuConsole
+            // 
+            this.MenuConsole.Name = "MenuConsole";
+            this.MenuConsole.Size = new System.Drawing.Size(76, 24);
+            this.MenuConsole.Text = "Console";
             // 
             // MenuHelp
             // 
@@ -191,6 +195,18 @@
             this.MenuHelp.Name = "MenuHelp";
             this.MenuHelp.Size = new System.Drawing.Size(55, 24);
             this.MenuHelp.Text = "Help";
+            // 
+            // MenuHelpDocumentation
+            // 
+            this.MenuHelpDocumentation.Name = "MenuHelpDocumentation";
+            this.MenuHelpDocumentation.Size = new System.Drawing.Size(195, 26);
+            this.MenuHelpDocumentation.Text = "Documentation";
+            // 
+            // MenuHelpAbout
+            // 
+            this.MenuHelpAbout.Name = "MenuHelpAbout";
+            this.MenuHelpAbout.Size = new System.Drawing.Size(195, 26);
+            this.MenuHelpAbout.Text = "About";
             // 
             // MainControl
             // 
@@ -266,8 +282,6 @@
             this.KeyScriptDetailsInfoPanel.Controls.Add(this.KeyScriptKey);
             this.KeyScriptDetailsInfoPanel.Controls.Add(this.KeyScriptName);
             this.KeyScriptDetailsInfoPanel.Controls.Add(this.label4);
-            this.KeyScriptDetailsInfoPanel.Controls.Add(this.label2);
-            this.KeyScriptDetailsInfoPanel.Controls.Add(this.KeyScriptStatus);
             this.KeyScriptDetailsInfoPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.KeyScriptDetailsInfoPanel.Location = new System.Drawing.Point(3, 18);
             this.KeyScriptDetailsInfoPanel.Name = "KeyScriptDetailsInfoPanel";
@@ -285,7 +299,7 @@
             // 
             // KeyScriptKey
             // 
-            this.KeyScriptKey.Location = new System.Drawing.Point(489, 12);
+            this.KeyScriptKey.Location = new System.Drawing.Point(363, 12);
             this.KeyScriptKey.Name = "KeyScriptKey";
             this.KeyScriptKey.Size = new System.Drawing.Size(64, 17);
             this.KeyScriptKey.TabIndex = 5;
@@ -301,29 +315,11 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(447, 12);
+            this.label4.Location = new System.Drawing.Point(321, 12);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(36, 17);
             this.label4.TabIndex = 4;
             this.label4.Text = "Key:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(321, 12);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(52, 17);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Status:";
-            // 
-            // KeyScriptStatus
-            // 
-            this.KeyScriptStatus.AutoSize = true;
-            this.KeyScriptStatus.Location = new System.Drawing.Point(370, 12);
-            this.KeyScriptStatus.Name = "KeyScriptStatus";
-            this.KeyScriptStatus.Size = new System.Drawing.Size(35, 17);
-            this.KeyScriptStatus.TabIndex = 3;
-            this.KeyScriptStatus.Text = "OFF";
             // 
             // KeyScriptsListPanel
             // 
@@ -608,93 +604,6 @@
             this.PatternsTab.Text = "Patterns";
             this.PatternsTab.UseVisualStyleBackColor = true;
             // 
-            // AreasPointsTab
-            // 
-            this.AreasPointsTab.Controls.Add(this.AreaPointDetails);
-            this.AreasPointsTab.Controls.Add(this.AreasPointsListPanel);
-            this.AreasPointsTab.Location = new System.Drawing.Point(4, 25);
-            this.AreasPointsTab.Name = "AreasPointsTab";
-            this.AreasPointsTab.Padding = new System.Windows.Forms.Padding(3);
-            this.AreasPointsTab.Size = new System.Drawing.Size(959, 394);
-            this.AreasPointsTab.TabIndex = 1;
-            this.AreasPointsTab.Text = "Areas and points";
-            this.AreasPointsTab.UseVisualStyleBackColor = true;
-            // 
-            // VariablesTab
-            // 
-            this.VariablesTab.Controls.Add(this.VariableDetails);
-            this.VariablesTab.Controls.Add(this.VariablesListPanel);
-            this.VariablesTab.Location = new System.Drawing.Point(4, 25);
-            this.VariablesTab.Name = "VariablesTab";
-            this.VariablesTab.Padding = new System.Windows.Forms.Padding(3);
-            this.VariablesTab.Size = new System.Drawing.Size(959, 394);
-            this.VariablesTab.TabIndex = 2;
-            this.VariablesTab.Text = "Variables";
-            this.VariablesTab.UseVisualStyleBackColor = true;
-            // 
-            // FunctionsTab
-            // 
-            this.FunctionsTab.Controls.Add(this.FunctionDetails);
-            this.FunctionsTab.Controls.Add(this.FunctionsListPanel);
-            this.FunctionsTab.Location = new System.Drawing.Point(4, 25);
-            this.FunctionsTab.Name = "FunctionsTab";
-            this.FunctionsTab.Padding = new System.Windows.Forms.Padding(3);
-            this.FunctionsTab.Size = new System.Drawing.Size(959, 394);
-            this.FunctionsTab.TabIndex = 3;
-            this.FunctionsTab.Text = "Functions";
-            this.FunctionsTab.UseVisualStyleBackColor = true;
-            // 
-            // FunctionsListPanel
-            // 
-            this.FunctionsListPanel.Controls.Add(this.FunctionNew);
-            this.FunctionsListPanel.Controls.Add(this.FunctionsList);
-            this.FunctionsListPanel.Controls.Add(this.RemoveNew);
-            this.FunctionsListPanel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.FunctionsListPanel.Location = new System.Drawing.Point(3, 3);
-            this.FunctionsListPanel.Name = "FunctionsListPanel";
-            this.FunctionsListPanel.Size = new System.Drawing.Size(300, 388);
-            this.FunctionsListPanel.TabIndex = 6;
-            // 
-            // FunctionNew
-            // 
-            this.FunctionNew.Location = new System.Drawing.Point(192, 3);
-            this.FunctionNew.Name = "FunctionNew";
-            this.FunctionNew.Size = new System.Drawing.Size(105, 27);
-            this.FunctionNew.TabIndex = 1;
-            this.FunctionNew.Text = "New";
-            this.FunctionNew.UseVisualStyleBackColor = true;
-            // 
-            // FunctionsList
-            // 
-            this.FunctionsList.Dock = System.Windows.Forms.DockStyle.Left;
-            this.FunctionsList.FormattingEnabled = true;
-            this.FunctionsList.ItemHeight = 16;
-            this.FunctionsList.Location = new System.Drawing.Point(0, 0);
-            this.FunctionsList.Name = "FunctionsList";
-            this.FunctionsList.Size = new System.Drawing.Size(186, 388);
-            this.FunctionsList.TabIndex = 0;
-            // 
-            // RemoveNew
-            // 
-            this.RemoveNew.Location = new System.Drawing.Point(192, 36);
-            this.RemoveNew.Name = "RemoveNew";
-            this.RemoveNew.Size = new System.Drawing.Size(105, 29);
-            this.RemoveNew.TabIndex = 2;
-            this.RemoveNew.Text = "Remove";
-            this.RemoveNew.UseVisualStyleBackColor = true;
-            this.RemoveNew.Visible = false;
-            // 
-            // FunctionDetails
-            // 
-            this.FunctionDetails.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.FunctionDetails.Location = new System.Drawing.Point(303, 3);
-            this.FunctionDetails.Name = "FunctionDetails";
-            this.FunctionDetails.Size = new System.Drawing.Size(653, 388);
-            this.FunctionDetails.TabIndex = 7;
-            this.FunctionDetails.TabStop = false;
-            this.FunctionDetails.Text = "Function details";
-            this.FunctionDetails.Visible = false;
-            // 
             // PatternDetails
             // 
             this.PatternDetails.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -745,6 +654,18 @@
             this.PatternRemove.Text = "Remove";
             this.PatternRemove.UseVisualStyleBackColor = true;
             this.PatternRemove.Visible = false;
+            // 
+            // AreasPointsTab
+            // 
+            this.AreasPointsTab.Controls.Add(this.AreaPointDetails);
+            this.AreasPointsTab.Controls.Add(this.AreasPointsListPanel);
+            this.AreasPointsTab.Location = new System.Drawing.Point(4, 25);
+            this.AreasPointsTab.Name = "AreasPointsTab";
+            this.AreasPointsTab.Padding = new System.Windows.Forms.Padding(3);
+            this.AreasPointsTab.Size = new System.Drawing.Size(959, 394);
+            this.AreasPointsTab.TabIndex = 1;
+            this.AreasPointsTab.Text = "Areas and points";
+            this.AreasPointsTab.UseVisualStyleBackColor = true;
             // 
             // AreaPointDetails
             // 
@@ -797,6 +718,18 @@
             this.AreaPointRemove.UseVisualStyleBackColor = true;
             this.AreaPointRemove.Visible = false;
             // 
+            // VariablesTab
+            // 
+            this.VariablesTab.Controls.Add(this.VariableDetails);
+            this.VariablesTab.Controls.Add(this.VariablesListPanel);
+            this.VariablesTab.Location = new System.Drawing.Point(4, 25);
+            this.VariablesTab.Name = "VariablesTab";
+            this.VariablesTab.Padding = new System.Windows.Forms.Padding(3);
+            this.VariablesTab.Size = new System.Drawing.Size(959, 394);
+            this.VariablesTab.TabIndex = 2;
+            this.VariablesTab.Text = "Variables";
+            this.VariablesTab.UseVisualStyleBackColor = true;
+            // 
             // VariableDetails
             // 
             this.VariableDetails.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -848,23 +781,68 @@
             this.VariableRemove.UseVisualStyleBackColor = true;
             this.VariableRemove.Visible = false;
             // 
-            // MenuConsole
+            // FunctionsTab
             // 
-            this.MenuConsole.Name = "MenuConsole";
-            this.MenuConsole.Size = new System.Drawing.Size(76, 24);
-            this.MenuConsole.Text = "Console";
+            this.FunctionsTab.Controls.Add(this.FunctionDetails);
+            this.FunctionsTab.Controls.Add(this.FunctionsListPanel);
+            this.FunctionsTab.Location = new System.Drawing.Point(4, 25);
+            this.FunctionsTab.Name = "FunctionsTab";
+            this.FunctionsTab.Padding = new System.Windows.Forms.Padding(3);
+            this.FunctionsTab.Size = new System.Drawing.Size(959, 394);
+            this.FunctionsTab.TabIndex = 3;
+            this.FunctionsTab.Text = "Functions";
+            this.FunctionsTab.UseVisualStyleBackColor = true;
             // 
-            // MenuHelpDocumentation
+            // FunctionDetails
             // 
-            this.MenuHelpDocumentation.Name = "MenuHelpDocumentation";
-            this.MenuHelpDocumentation.Size = new System.Drawing.Size(224, 26);
-            this.MenuHelpDocumentation.Text = "Documentation";
+            this.FunctionDetails.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.FunctionDetails.Location = new System.Drawing.Point(303, 3);
+            this.FunctionDetails.Name = "FunctionDetails";
+            this.FunctionDetails.Size = new System.Drawing.Size(653, 388);
+            this.FunctionDetails.TabIndex = 7;
+            this.FunctionDetails.TabStop = false;
+            this.FunctionDetails.Text = "Function details";
+            this.FunctionDetails.Visible = false;
             // 
-            // MenuHelpAbout
+            // FunctionsListPanel
             // 
-            this.MenuHelpAbout.Name = "MenuHelpAbout";
-            this.MenuHelpAbout.Size = new System.Drawing.Size(224, 26);
-            this.MenuHelpAbout.Text = "About";
+            this.FunctionsListPanel.Controls.Add(this.FunctionNew);
+            this.FunctionsListPanel.Controls.Add(this.FunctionsList);
+            this.FunctionsListPanel.Controls.Add(this.RemoveNew);
+            this.FunctionsListPanel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.FunctionsListPanel.Location = new System.Drawing.Point(3, 3);
+            this.FunctionsListPanel.Name = "FunctionsListPanel";
+            this.FunctionsListPanel.Size = new System.Drawing.Size(300, 388);
+            this.FunctionsListPanel.TabIndex = 6;
+            // 
+            // FunctionNew
+            // 
+            this.FunctionNew.Location = new System.Drawing.Point(192, 3);
+            this.FunctionNew.Name = "FunctionNew";
+            this.FunctionNew.Size = new System.Drawing.Size(105, 27);
+            this.FunctionNew.TabIndex = 1;
+            this.FunctionNew.Text = "New";
+            this.FunctionNew.UseVisualStyleBackColor = true;
+            // 
+            // FunctionsList
+            // 
+            this.FunctionsList.Dock = System.Windows.Forms.DockStyle.Left;
+            this.FunctionsList.FormattingEnabled = true;
+            this.FunctionsList.ItemHeight = 16;
+            this.FunctionsList.Location = new System.Drawing.Point(0, 0);
+            this.FunctionsList.Name = "FunctionsList";
+            this.FunctionsList.Size = new System.Drawing.Size(186, 388);
+            this.FunctionsList.TabIndex = 0;
+            // 
+            // RemoveNew
+            // 
+            this.RemoveNew.Location = new System.Drawing.Point(192, 36);
+            this.RemoveNew.Name = "RemoveNew";
+            this.RemoveNew.Size = new System.Drawing.Size(105, 29);
+            this.RemoveNew.TabIndex = 2;
+            this.RemoveNew.Text = "Remove";
+            this.RemoveNew.UseVisualStyleBackColor = true;
+            this.RemoveNew.Visible = false;
             // 
             // Main
             // 
@@ -899,13 +877,13 @@
             this.SettingsTab.ResumeLayout(false);
             this.SettingsControl.ResumeLayout(false);
             this.PatternsTab.ResumeLayout(false);
+            this.PatternsListPanel.ResumeLayout(false);
             this.AreasPointsTab.ResumeLayout(false);
+            this.AreasPointsListPanel.ResumeLayout(false);
             this.VariablesTab.ResumeLayout(false);
+            this.VariablesListPanel.ResumeLayout(false);
             this.FunctionsTab.ResumeLayout(false);
             this.FunctionsListPanel.ResumeLayout(false);
-            this.PatternsListPanel.ResumeLayout(false);
-            this.AreasPointsListPanel.ResumeLayout(false);
-            this.VariablesListPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -934,8 +912,6 @@
         private System.Windows.Forms.GroupBox KeyScriptDetails;
         private System.Windows.Forms.Label KeyScriptKey;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label KeyScriptStatus;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox KeyScriptName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button KeyScriptRemove;

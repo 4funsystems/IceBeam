@@ -7,16 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using IceCore;
 
 namespace IceBeam
 {
     public partial class Main : Form
     {
-        public IceCore.IceCore core = new IceCore.IceCore();
+        public LuaHandler lua;
+        public IceConsole console;
+
         public Main()
         {
             InitializeComponent();
+            console = new IceConsole(this);
+            lua = new LuaHandler(this);
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
