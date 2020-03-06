@@ -126,9 +126,10 @@
             this.label17 = new System.Windows.Forms.Label();
             this.FunctionName = new System.Windows.Forms.TextBox();
             this.FunctionsListPanel = new System.Windows.Forms.Panel();
+            this.FunctionsList = new System.Windows.Forms.ListBox();
             this.FunctionNew = new System.Windows.Forms.Button();
             this.RemoveNew = new System.Windows.Forms.Button();
-            this.FunctionsList = new System.Windows.Forms.ListBox();
+            this.KeyScriptSetKey = new System.Windows.Forms.Button();
             this.TopMenu.SuspendLayout();
             this.MainControl.SuspendLayout();
             this.ScripterTab.SuspendLayout();
@@ -303,10 +304,12 @@
             this.KeyScriptCode.Size = new System.Drawing.Size(647, 322);
             this.KeyScriptCode.TabIndex = 7;
             this.KeyScriptCode.Text = "";
+            this.KeyScriptCode.TextChanged += new System.EventHandler(this.KeyScriptCode_TextChanged);
             // 
             // KeyScriptDetailsInfoPanel
             // 
             this.KeyScriptDetailsInfoPanel.AutoScroll = true;
+            this.KeyScriptDetailsInfoPanel.Controls.Add(this.KeyScriptSetKey);
             this.KeyScriptDetailsInfoPanel.Controls.Add(this.label1);
             this.KeyScriptDetailsInfoPanel.Controls.Add(this.KeyScriptKey);
             this.KeyScriptDetailsInfoPanel.Controls.Add(this.KeyScriptName);
@@ -340,6 +343,7 @@
             this.KeyScriptName.Name = "KeyScriptName";
             this.KeyScriptName.Size = new System.Drawing.Size(228, 22);
             this.KeyScriptName.TabIndex = 1;
+            this.KeyScriptName.TextChanged += new System.EventHandler(this.KeyScriptName_TextChanged);
             // 
             // label4
             // 
@@ -369,6 +373,7 @@
             this.KeyScriptNew.TabIndex = 1;
             this.KeyScriptNew.Text = "New";
             this.KeyScriptNew.UseVisualStyleBackColor = true;
+            this.KeyScriptNew.Click += new System.EventHandler(this.KeyScriptNew_Click);
             // 
             // KeyScriptsList
             // 
@@ -379,6 +384,7 @@
             this.KeyScriptsList.Name = "KeyScriptsList";
             this.KeyScriptsList.Size = new System.Drawing.Size(186, 388);
             this.KeyScriptsList.TabIndex = 0;
+            this.KeyScriptsList.SelectedIndexChanged += new System.EventHandler(this.KeyScriptsList_SelectedIndexChanged);
             // 
             // KeyScriptRemove
             // 
@@ -389,6 +395,7 @@
             this.KeyScriptRemove.Text = "Remove";
             this.KeyScriptRemove.UseVisualStyleBackColor = true;
             this.KeyScriptRemove.Visible = false;
+            this.KeyScriptRemove.Click += new System.EventHandler(this.KeyScriptRemove_Click);
             // 
             // PersScriptsTab
             // 
@@ -1147,6 +1154,16 @@
             this.FunctionsListPanel.Size = new System.Drawing.Size(300, 388);
             this.FunctionsListPanel.TabIndex = 6;
             // 
+            // FunctionsList
+            // 
+            this.FunctionsList.Dock = System.Windows.Forms.DockStyle.Left;
+            this.FunctionsList.FormattingEnabled = true;
+            this.FunctionsList.ItemHeight = 16;
+            this.FunctionsList.Location = new System.Drawing.Point(0, 0);
+            this.FunctionsList.Name = "FunctionsList";
+            this.FunctionsList.Size = new System.Drawing.Size(191, 388);
+            this.FunctionsList.TabIndex = 3;
+            // 
             // FunctionNew
             // 
             this.FunctionNew.Location = new System.Drawing.Point(192, 3);
@@ -1166,15 +1183,15 @@
             this.RemoveNew.UseVisualStyleBackColor = true;
             this.RemoveNew.Visible = false;
             // 
-            // FunctionsList
+            // KeyScriptSetKey
             // 
-            this.FunctionsList.Dock = System.Windows.Forms.DockStyle.Left;
-            this.FunctionsList.FormattingEnabled = true;
-            this.FunctionsList.ItemHeight = 16;
-            this.FunctionsList.Location = new System.Drawing.Point(0, 0);
-            this.FunctionsList.Name = "FunctionsList";
-            this.FunctionsList.Size = new System.Drawing.Size(191, 388);
-            this.FunctionsList.TabIndex = 3;
+            this.KeyScriptSetKey.Location = new System.Drawing.Point(433, 9);
+            this.KeyScriptSetKey.Name = "KeyScriptSetKey";
+            this.KeyScriptSetKey.Size = new System.Drawing.Size(75, 23);
+            this.KeyScriptSetKey.TabIndex = 6;
+            this.KeyScriptSetKey.Text = "Set";
+            this.KeyScriptSetKey.UseVisualStyleBackColor = true;
+            this.KeyScriptSetKey.Click += new System.EventHandler(this.KeyScriptSetKey_Click);
             // 
             // Main
             // 
@@ -1344,6 +1361,7 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox FunctionName;
         private System.Windows.Forms.ListBox FunctionsList;
+        private System.Windows.Forms.Button KeyScriptSetKey;
     }
 }
 

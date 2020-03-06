@@ -38,11 +38,11 @@ namespace IceBeam
         }
         public void Debug(string s)
         {
-            luahandler.main.console.Write(s);
+            Main.Debug(s);
         }
         public void Clear()
         {
-            luahandler.main.console.Clear();
+            Main.Clear();
         }
         public void LClick(Point location)
         {

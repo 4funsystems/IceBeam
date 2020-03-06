@@ -63,7 +63,7 @@ namespace IceBeam
         public int key = 0;
         public override string ToString()
         {
-            return name;
+            return "["+Main.GetKeyCode(key)+"] "+name;
         }
     }
     [Serializable]
@@ -75,7 +75,7 @@ namespace IceBeam
         public int max = 5000;
         public override string ToString()
         {
-            return name + (loop ? "{" + min + " to " + max + "}" : "");
+            return "["+(enabled?"ON":"OFF")+"] "+ (loop ? "{" + min + " to " + max + "} " : "") + name;
         }
     }
     [Serializable]
