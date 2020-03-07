@@ -111,6 +111,17 @@ namespace IceBeam
             }
         }
 
+        public async void Pulse(PersScript s)
+        {
+            if (s.enabled)
+                s.enabled = false;
+            else
+            {
+                s.enabled = true;
+                await Run(s);
+            }
+        }
+
         public async Task<bool> Run(Script s)
         {
             ParameterizedThreadStart ts = new ParameterizedThreadStart(s.Execute);

@@ -43,6 +43,7 @@
             this.KeyScriptDetails = new System.Windows.Forms.GroupBox();
             this.KeyScriptCode = new System.Windows.Forms.RichTextBox();
             this.KeyScriptDetailsInfoPanel = new System.Windows.Forms.Panel();
+            this.KeyScriptSetKey = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.KeyScriptKey = new System.Windows.Forms.Label();
             this.KeyScriptName = new System.Windows.Forms.TextBox();
@@ -129,7 +130,6 @@
             this.FunctionsList = new System.Windows.Forms.ListBox();
             this.FunctionNew = new System.Windows.Forms.Button();
             this.RemoveNew = new System.Windows.Forms.Button();
-            this.KeyScriptSetKey = new System.Windows.Forms.Button();
             this.TopMenu.SuspendLayout();
             this.MainControl.SuspendLayout();
             this.ScripterTab.SuspendLayout();
@@ -320,6 +320,16 @@
             this.KeyScriptDetailsInfoPanel.Size = new System.Drawing.Size(647, 45);
             this.KeyScriptDetailsInfoPanel.TabIndex = 6;
             // 
+            // KeyScriptSetKey
+            // 
+            this.KeyScriptSetKey.Location = new System.Drawing.Point(433, 9);
+            this.KeyScriptSetKey.Name = "KeyScriptSetKey";
+            this.KeyScriptSetKey.Size = new System.Drawing.Size(75, 23);
+            this.KeyScriptSetKey.TabIndex = 6;
+            this.KeyScriptSetKey.Text = "Set";
+            this.KeyScriptSetKey.UseVisualStyleBackColor = true;
+            this.KeyScriptSetKey.Click += new System.EventHandler(this.KeyScriptSetKey_Click);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -431,6 +441,7 @@
             this.PersScriptCode.TabIndex = 7;
             this.PersScriptCode.Text = "";
             this.PersScriptCode.Visible = false;
+            this.PersScriptCode.TextChanged += new System.EventHandler(this.PersScriptCode_TextChanged);
             // 
             // PersScriptDetailsInfoPanel
             // 
@@ -456,6 +467,7 @@
             this.PersScriptTurnOff.TabIndex = 10;
             this.PersScriptTurnOff.Text = "Stop it";
             this.PersScriptTurnOff.UseVisualStyleBackColor = true;
+            this.PersScriptTurnOff.Click += new System.EventHandler(this.PersScriptTurnOff_Click);
             // 
             // PersScriptStatus
             // 
@@ -521,6 +533,7 @@
             0,
             0,
             0});
+            this.PersScriptMax.ValueChanged += new System.EventHandler(this.PersScriptMax_ValueChanged);
             // 
             // PersScriptMin
             // 
@@ -538,6 +551,7 @@
             0,
             0,
             0});
+            this.PersScriptMin.ValueChanged += new System.EventHandler(this.PersScriptMin_ValueChanged);
             // 
             // PersScriptLoop
             // 
@@ -548,6 +562,7 @@
             this.PersScriptLoop.TabIndex = 6;
             this.PersScriptLoop.Text = "Loop:";
             this.PersScriptLoop.UseVisualStyleBackColor = true;
+            this.PersScriptLoop.CheckedChanged += new System.EventHandler(this.PersScriptLoop_CheckedChanged);
             // 
             // label6
             // 
@@ -564,6 +579,7 @@
             this.PersScriptName.Name = "PersScriptName";
             this.PersScriptName.Size = new System.Drawing.Size(228, 22);
             this.PersScriptName.TabIndex = 1;
+            this.PersScriptName.TextChanged += new System.EventHandler(this.PersScriptName_TextChanged);
             // 
             // PersScriptsListPanel
             // 
@@ -584,6 +600,7 @@
             this.PersScriptsList.Name = "PersScriptsList";
             this.PersScriptsList.Size = new System.Drawing.Size(186, 388);
             this.PersScriptsList.TabIndex = 3;
+            this.PersScriptsList.SelectedIndexChanged += new System.EventHandler(this.PersScriptsList_SelectedIndexChanged);
             // 
             // PersScriptNew
             // 
@@ -593,6 +610,7 @@
             this.PersScriptNew.TabIndex = 1;
             this.PersScriptNew.Text = "New";
             this.PersScriptNew.UseVisualStyleBackColor = true;
+            this.PersScriptNew.Click += new System.EventHandler(this.PersScriptNew_Click);
             // 
             // PersScriptRemove
             // 
@@ -603,6 +621,7 @@
             this.PersScriptRemove.Text = "Remove";
             this.PersScriptRemove.UseVisualStyleBackColor = true;
             this.PersScriptRemove.Visible = false;
+            this.PersScriptRemove.Click += new System.EventHandler(this.PersScriptRemove_Click);
             // 
             // SettingsTab
             // 
@@ -694,6 +713,7 @@
             this.PatternScreen.TabIndex = 12;
             this.PatternScreen.Text = "Get from screen";
             this.PatternScreen.UseVisualStyleBackColor = true;
+            this.PatternScreen.Click += new System.EventHandler(this.PatternScreen_Click);
             // 
             // PatternSave
             // 
@@ -703,6 +723,7 @@
             this.PatternSave.TabIndex = 7;
             this.PatternSave.Text = "Save to file";
             this.PatternSave.UseVisualStyleBackColor = true;
+            this.PatternSave.Click += new System.EventHandler(this.PatternSave_Click);
             // 
             // PatternLoad
             // 
@@ -712,6 +733,7 @@
             this.PatternLoad.TabIndex = 11;
             this.PatternLoad.Text = "Load from file";
             this.PatternLoad.UseVisualStyleBackColor = true;
+            this.PatternLoad.Click += new System.EventHandler(this.PatternLoad_Click);
             // 
             // PatternCategory
             // 
@@ -719,6 +741,7 @@
             this.PatternCategory.Name = "PatternCategory";
             this.PatternCategory.Size = new System.Drawing.Size(42, 22);
             this.PatternCategory.TabIndex = 10;
+            this.PatternCategory.ValueChanged += new System.EventHandler(this.PatternCategory_ValueChanged);
             // 
             // label3
             // 
@@ -735,6 +758,7 @@
             this.PatternName.Name = "PatternName";
             this.PatternName.Size = new System.Drawing.Size(255, 22);
             this.PatternName.TabIndex = 8;
+            this.PatternName.TextChanged += new System.EventHandler(this.PatternName_TextChanged);
             // 
             // label2
             // 
@@ -764,6 +788,7 @@
             this.PatternNew.TabIndex = 1;
             this.PatternNew.Text = "New";
             this.PatternNew.UseVisualStyleBackColor = true;
+            this.PatternNew.Click += new System.EventHandler(this.PatternNew_Click);
             // 
             // PatternsList
             // 
@@ -774,6 +799,7 @@
             this.PatternsList.Name = "PatternsList";
             this.PatternsList.Size = new System.Drawing.Size(186, 388);
             this.PatternsList.TabIndex = 0;
+            this.PatternsList.SelectedIndexChanged += new System.EventHandler(this.PatternsList_SelectedIndexChanged);
             // 
             // PatternRemove
             // 
@@ -784,6 +810,7 @@
             this.PatternRemove.Text = "Remove";
             this.PatternRemove.UseVisualStyleBackColor = true;
             this.PatternRemove.Visible = false;
+            this.PatternRemove.Click += new System.EventHandler(this.PatternRemove_Click);
             // 
             // AreasPointsTab
             // 
@@ -823,6 +850,7 @@
             this.PointAreaGet.TabIndex = 7;
             this.PointAreaGet.Text = "Get from screen";
             this.PointAreaGet.UseVisualStyleBackColor = true;
+            this.PointAreaGet.Click += new System.EventHandler(this.PointAreaGet_Click);
             // 
             // PointAreaSize
             // 
@@ -841,6 +869,7 @@
             this.PointAreaH.Name = "PointAreaH";
             this.PointAreaH.Size = new System.Drawing.Size(120, 22);
             this.PointAreaH.TabIndex = 3;
+            this.PointAreaH.ValueChanged += new System.EventHandler(this.PointAreaH_ValueChanged);
             // 
             // PointAreaW
             // 
@@ -848,6 +877,7 @@
             this.PointAreaW.Name = "PointAreaW";
             this.PointAreaW.Size = new System.Drawing.Size(120, 22);
             this.PointAreaW.TabIndex = 2;
+            this.PointAreaW.ValueChanged += new System.EventHandler(this.PointAreaW_ValueChanged);
             // 
             // label13
             // 
@@ -884,6 +914,7 @@
             this.PointAreaY.Name = "PointAreaY";
             this.PointAreaY.Size = new System.Drawing.Size(120, 22);
             this.PointAreaY.TabIndex = 3;
+            this.PointAreaY.ValueChanged += new System.EventHandler(this.PointAreaY_ValueChanged);
             // 
             // PointAreaX
             // 
@@ -891,6 +922,7 @@
             this.PointAreaX.Name = "PointAreaX";
             this.PointAreaX.Size = new System.Drawing.Size(120, 22);
             this.PointAreaX.TabIndex = 2;
+            this.PointAreaX.ValueChanged += new System.EventHandler(this.PointAreaX_ValueChanged);
             // 
             // label10
             // 
@@ -917,6 +949,7 @@
             this.PointAreaType.Name = "PointAreaType";
             this.PointAreaType.Size = new System.Drawing.Size(121, 24);
             this.PointAreaType.TabIndex = 3;
+            this.PointAreaType.SelectedIndexChanged += new System.EventHandler(this.PointAreaType_SelectedIndexChanged);
             // 
             // label8
             // 
@@ -933,6 +966,7 @@
             this.PointAreaName.Name = "PointAreaName";
             this.PointAreaName.Size = new System.Drawing.Size(173, 22);
             this.PointAreaName.TabIndex = 1;
+            this.PointAreaName.TextChanged += new System.EventHandler(this.PointAreaName_TextChanged);
             // 
             // label5
             // 
@@ -962,6 +996,7 @@
             this.PointAreaNew.TabIndex = 1;
             this.PointAreaNew.Text = "New";
             this.PointAreaNew.UseVisualStyleBackColor = true;
+            this.PointAreaNew.Click += new System.EventHandler(this.PointAreaNew_Click);
             // 
             // PointsAreasList
             // 
@@ -972,6 +1007,7 @@
             this.PointsAreasList.Name = "PointsAreasList";
             this.PointsAreasList.Size = new System.Drawing.Size(186, 388);
             this.PointsAreasList.TabIndex = 0;
+            this.PointsAreasList.SelectedIndexChanged += new System.EventHandler(this.PointsAreasList_SelectedIndexChanged);
             // 
             // PointAreaRemove
             // 
@@ -982,6 +1018,7 @@
             this.PointAreaRemove.Text = "Remove";
             this.PointAreaRemove.UseVisualStyleBackColor = true;
             this.PointAreaRemove.Visible = false;
+            this.PointAreaRemove.Click += new System.EventHandler(this.PointAreaRemove_Click);
             // 
             // VariablesTab
             // 
@@ -1182,16 +1219,6 @@
             this.RemoveNew.Text = "Remove";
             this.RemoveNew.UseVisualStyleBackColor = true;
             this.RemoveNew.Visible = false;
-            // 
-            // KeyScriptSetKey
-            // 
-            this.KeyScriptSetKey.Location = new System.Drawing.Point(433, 9);
-            this.KeyScriptSetKey.Name = "KeyScriptSetKey";
-            this.KeyScriptSetKey.Size = new System.Drawing.Size(75, 23);
-            this.KeyScriptSetKey.TabIndex = 6;
-            this.KeyScriptSetKey.Text = "Set";
-            this.KeyScriptSetKey.UseVisualStyleBackColor = true;
-            this.KeyScriptSetKey.Click += new System.EventHandler(this.KeyScriptSetKey_Click);
             // 
             // Main
             // 

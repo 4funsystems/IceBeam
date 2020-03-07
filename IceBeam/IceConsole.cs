@@ -37,7 +37,7 @@ namespace IceBeam
         }
         public void SendCommand()
         {
-            m.lua.ExecuteText(textBox1.Text);
+            m.lh.ExecuteText(textBox1.Text);
         }
     }
 }
