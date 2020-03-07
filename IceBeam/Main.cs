@@ -375,10 +375,12 @@ namespace IceBeam
             lh.settings.patterns.Add(new Pattern());
             UpdatePatternList(lh.settings.patterns);
             PatternsList.SelectedIndex = lh.settings.patterns.Count - 1;
+            lh.RegisterUserVariables();
         }
 
         private void PatternRemove_Click(object sender, EventArgs e)
         {
+            //lh.ClearVar("pat_" + lh.settings.patterns[pattern_temporary_index].category + "_" + lh.settings.patterns[pattern_temporary_index].name);
             lh.settings.patterns.RemoveAt(pattern_temporary_index);
             UpdatePatternList(lh.settings.patterns);
             pattern_temporary_index = -1;
@@ -391,6 +393,7 @@ namespace IceBeam
             lh.settings.patterns[pattern_temporary_index].name = PatternName.Text;
             int temp = pattern_temporary_index;
             UpdatePatternList(lh.settings.patterns);
+            lh.RegisterUserVariables();
             PatternsList.SelectedIndex = temp;
         }
 
@@ -400,6 +403,7 @@ namespace IceBeam
             int temp = pattern_temporary_index;
             UpdatePatternList(lh.settings.patterns);
             PatternsList.SelectedIndex = temp;
+            lh.RegisterUserVariables();
         }
 
         private void PatternLoad_Click(object sender, EventArgs e)
@@ -426,6 +430,7 @@ namespace IceBeam
         private void PatternImage_ImageChanged(object sender, EventArgs e)
         {
             lh.settings.patterns[pattern_temporary_index].bmp = PatternImage.BackgroundImage as Bitmap;
+            lh.RegisterUserVariables();
         }
         #endregion;
 
@@ -467,6 +472,7 @@ namespace IceBeam
             lh.settings.pointareas.Add(new PointArea());
             UpdatePointAreaList(lh.settings.pointareas);
             PointsAreasList.SelectedIndex = lh.settings.pointareas.Count - 1;
+            lh.RegisterUserVariables();
 
         }
 
@@ -485,6 +491,7 @@ namespace IceBeam
             int temp = pointarea_temporary_index;
             UpdatePointAreaList(lh.settings.pointareas);
             PointsAreasList.SelectedIndex = temp;
+            lh.RegisterUserVariables();
         }
 
         private void PointAreaType_SelectedIndexChanged(object sender, EventArgs e)
@@ -497,6 +504,7 @@ namespace IceBeam
             int temp = pointarea_temporary_index;
             UpdatePointAreaList(lh.settings.pointareas);
             PointsAreasList.SelectedIndex = temp;
+            lh.RegisterUserVariables();
         }
 
         private void PointAreaGet_Click(object sender, EventArgs e)
@@ -512,6 +520,7 @@ namespace IceBeam
             int temp = pointarea_temporary_index;
             UpdatePointAreaList(lh.settings.pointareas);
             PointsAreasList.SelectedIndex = temp;
+            lh.RegisterUserVariables();
         }
 
         private void PointAreaY_ValueChanged(object sender, EventArgs e)
@@ -520,6 +529,7 @@ namespace IceBeam
             int temp = pointarea_temporary_index;
             UpdatePointAreaList(lh.settings.pointareas);
             PointsAreasList.SelectedIndex = temp;
+            lh.RegisterUserVariables();
         }
 
         private void PointAreaW_ValueChanged(object sender, EventArgs e)
@@ -528,11 +538,16 @@ namespace IceBeam
             int temp = pointarea_temporary_index;
             UpdatePointAreaList(lh.settings.pointareas);
             PointsAreasList.SelectedIndex = temp;
+            lh.RegisterUserVariables();
         }
 
         private void PointAreaH_ValueChanged(object sender, EventArgs e)
         {
             lh.settings.pointareas[pointarea_temporary_index].size.Height = (int)PointAreaH.Value;
+            int temp = pointarea_temporary_index;
+            UpdatePointAreaList(lh.settings.pointareas);
+            PointsAreasList.SelectedIndex = temp;
+            lh.RegisterUserVariables();
         }
 
 
@@ -557,6 +572,7 @@ namespace IceBeam
             lh.settings.variables.Add(new Variable());
             UpdateVariableList(lh.settings.variables);
             VariablesList.SelectedIndex = lh.settings.variables.Count - 1;
+            lh.RegisterUserVariables();
         }
 
         private void VariableRemove_Click(object sender, EventArgs e)
@@ -574,11 +590,16 @@ namespace IceBeam
             int temp = variable_temporary_index;
             UpdateVariableList(lh.settings.variables);
             VariablesList.SelectedIndex = temp;
+            lh.RegisterUserVariables();
         }
 
         private void VariableValue_TextChanged(object sender, EventArgs e)
         {
-            lh.settings.variables[variable_temporary_index].value = VariableValue.Text as object;
+            lh.settings.variables[variable_temporary_index].value = VariableValue.Text;
+            int temp = variable_temporary_index;
+            UpdateVariableList(lh.settings.variables);
+            VariablesList.SelectedIndex = temp;
+            lh.RegisterUserVariables();
         }
 
         #endregion

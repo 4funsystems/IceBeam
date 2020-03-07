@@ -94,7 +94,7 @@ namespace IceBeam
             }
             foreach (Variable v in settings.variables)
             {
-                lua["$" + v.name] = v.value;
+                lua["var_" + v.name] = v.value;
             }
             foreach (PointArea pa in settings.pointareas)
             {
