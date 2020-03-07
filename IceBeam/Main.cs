@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,16 +16,22 @@ namespace IceBeam
     {
         public LuaHandler lh;
         public static IceConsole console;
+        private GlobalKeyboardHook _globalKeyboardHook;
         public Main()
         {
             InitializeComponent();
+            SetProcessDPIAware();
+            CheckForIllegalCrossThreadCalls = false;
             console = new IceConsole(this);
             lh = new LuaHandler(this);
-            PersScriptsList.ItemCheck += PersScriptsList_ItemCheck;
             PatternImage.BackgroundImageChanged += PatternImage_ImageChanged;
+            _globalKeyboardHook = new GlobalKeyboardHook();
+            _globalKeyboardHook.KeyboardPressed += OnKeyPressed;
         }
 
         #region STATIC FUNCTIONS
+        [DllImport("user32.dll", SetLastError = true)]
+        static extern bool SetProcessDPIAware();
         public static void Debug(string s)
         {
             console.Write(s);
@@ -59,7 +66,9 @@ namespace IceBeam
         {
             PersScriptsList.Items.Clear();
             foreach (PersScript ps in scripts)
+            {
                 PersScriptsList.Items.Add(ps.ToString());
+            }
         }
         void UpdatePatternList(List<Pattern> patterns)
         {
@@ -97,6 +106,10 @@ namespace IceBeam
         private void MenuFileLoad_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
+            ofd.FileName = last_file;
+            ofd.DefaultExt = "ibs";
+            ofd.Filter = "IceBeam Settings (.ibs) | *.ibs";
+            ofd.ValidateNames = true;
             if (ofd.ShowDialog() == DialogResult.OK)
             {
                 if (File.Exists(ofd.FileName))
@@ -109,16 +122,18 @@ namespace IceBeam
         private void MenuFileSave_Click(object sender, EventArgs e)
         {
             if (last_file != "" && File.Exists(last_file))
+            {
                 lh.SaveSettings(last_file);
+            }
 
         }
         private void MenuFileSaveAs_Click(object sender, EventArgs e)
         {
-            SaveFile();
-        }
-        private void SaveFile()
-        {
             SaveFileDialog ofd = new SaveFileDialog();
+            ofd.FileName = last_file;
+            ofd.DefaultExt = "ibs";
+            ofd.Filter = "IceBeam Settings (.ibs) | *.ibs";
+            ofd.ValidateNames = true;
             if (ofd.ShowDialog() == DialogResult.OK)
             {
                 lh.SaveSettings(ofd.FileName);
@@ -139,6 +154,29 @@ namespace IceBeam
 
         #region KEYSCRIPTS
         int keyscript_temporary_index = -1;
+
+        public void SetKey(int key)
+        {            
+            lh.settings.keyscripts[keyscript_temporary_index].key = key;
+            int temp = keyscript_temporary_index;
+            UpdateKeyScriptList(lh.settings.keyscripts);
+            KeyScriptsList.SelectedIndex = temp;
+        }
+
+        private void KeyScriptsList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (KeyScriptsList.SelectedIndex >= 0 && KeyScriptsList.SelectedIndex < KeyScriptsList.Items.Count)
+            {
+                keyscript_temporary_index = KeyScriptsList.SelectedIndex;
+                KeyScriptName.Text = lh.settings.keyscripts[keyscript_temporary_index].name;
+                KeyScriptKey.Text = (lh.settings.keyscripts[keyscript_temporary_index].key != 27?"<" + GetKeyCode(lh.settings.keyscripts[keyscript_temporary_index].key) + ">":"<NONE>");
+                KeyScriptCode.Text = lh.settings.keyscripts[keyscript_temporary_index].code;
+                KeyScriptEnabled.Checked = lh.settings.keyscripts[keyscript_temporary_index].enabled;
+                KeyScriptDetails.Show();
+                KeyScriptRemove.Show();
+            }
+        }
+
         private void KeyScriptNew_Click(object sender, EventArgs e)
         {
             lh.settings.keyscripts.Add(new KeyScript());
@@ -157,6 +195,9 @@ namespace IceBeam
         private void KeyScriptName_TextChanged(object sender, EventArgs e)
         {
             lh.settings.keyscripts[keyscript_temporary_index].name = KeyScriptName.Text;
+            int temp = keyscript_temporary_index;
+            UpdateKeyScriptList(lh.settings.keyscripts);
+            KeyScriptsList.SelectedIndex = temp;
         }
 
         private void KeyScriptCode_TextChanged(object sender, EventArgs e)
@@ -167,25 +208,32 @@ namespace IceBeam
 
         private void KeyScriptSetKey_Click(object sender, EventArgs e)
         {
-            KeyForm kf = new KeyForm(keyscript_temporary_index,this);
+            KeyForm kf = new KeyForm(this);
             kf.Show();
 
         }
-        public void SetKey(int id, int key)
-        {
-            lh.settings.keyscripts[id].key = key;
-        }
 
-        private void KeyScriptsList_SelectedIndexChanged(object sender, EventArgs e)
+        private void OnKeyPressed(object sender, GlobalKeyboardHookEventArgs e)
         {
-            keyscript_temporary_index = KeyScriptsList.SelectedIndex;
-            KeyScriptName.Text = lh.settings.keyscripts[keyscript_temporary_index].name;
-            KeyScriptKey.Text = "<"+GetKeyCode(lh.settings.keyscripts[keyscript_temporary_index].key)+">";
-            KeyScriptCode.Text = lh.settings.keyscripts[keyscript_temporary_index].code;
-            KeyScriptDetails.Show();
-            KeyScriptRemove.Show();
-        }
+            bool ret = true;
+            foreach (KeyScript ks in lh.settings.keyscripts)
+            {
+                if (ks.enabled && ks.key == e.KeyboardData.VirtualCode && e.KeyboardState == GlobalKeyboardHook.KeyboardState.KeyDown && e.KeyboardData.VirtualCode != 27)
+                {
+                    lh.Run(ks);
+                    ret = false;
+                }
+            }
+            if (ret)
+                return;
 
+
+        }
+        
+        private void KeyScriptEnabled_CheckedChanged(object sender, EventArgs e)
+        {
+            lh.settings.keyscripts[keyscript_temporary_index].enabled = KeyScriptEnabled.Checked;
+        }
         #endregion
 
         #region PERSISTENT SCRIPTS
@@ -203,6 +251,7 @@ namespace IceBeam
             UpdatePersScriptList(lh.settings.persscripts);
             persscript_temporary_index = -1;
             PersScriptDetails.Hide();
+            PersScriptRemove.Hide();
         }
 
         private void PersScriptName_TextChanged(object sender, EventArgs e)
@@ -220,21 +269,45 @@ namespace IceBeam
                 PersScriptLoopPanel.Show();
             else
                 PersScriptLoopPanel.Hide();
+            int temp = persscript_temporary_index;
+            UpdatePersScriptList(lh.settings.persscripts);
+            PersScriptsList.SelectedIndex = temp;
         }
 
         private void PersScriptMin_ValueChanged(object sender, EventArgs e)
         {
             lh.settings.persscripts[persscript_temporary_index].min = (int)PersScriptMin.Value;
+            int temp = persscript_temporary_index;
+            UpdatePersScriptList(lh.settings.persscripts);
+            PersScriptsList.SelectedIndex = temp;
         }
 
         private void PersScriptMax_ValueChanged(object sender, EventArgs e)
         {
             lh.settings.persscripts[persscript_temporary_index].max = (int)PersScriptMax.Value;
+            int temp = persscript_temporary_index;
+            UpdatePersScriptList(lh.settings.persscripts);
+            PersScriptsList.SelectedIndex = temp;
         }
 
         private void PersScriptTurnOff_Click(object sender, EventArgs e)
         {
             lh.Pulse(lh.settings.persscripts[persscript_temporary_index]);
+            UpdatePersScriptList(lh.settings.persscripts);
+            if (lh.settings.persscripts[persscript_temporary_index].enabled)
+            {
+                PersScriptStatus.Text = "Running (Changes are disabled while script is being executed.)";
+                PersScriptStatus.ForeColor = Color.Green;
+                PersScriptTurnOff.Text = "Stop execution";
+                PersScriptCode.Hide();
+            }
+            else
+            {
+                PersScriptStatus.Text = "Not running";
+                PersScriptStatus.ForeColor = Color.Red;
+                PersScriptTurnOff.Text = "Run script";
+                PersScriptCode.Show();
+            }
         }
 
         private void PersScriptCode_TextChanged(object sender, EventArgs e)
@@ -248,6 +321,7 @@ namespace IceBeam
             {
                 persscript_temporary_index = PersScriptsList.SelectedIndex;
                 PersScriptDetails.Show();
+                PersScriptRemove.Show();
                 PersScriptName.Text = lh.settings.persscripts[persscript_temporary_index].name;
                 PersScriptCode.Text = lh.settings.persscripts[persscript_temporary_index].code;
                 PersScriptLoop.Checked = lh.settings.persscripts[persscript_temporary_index].loop;
@@ -261,20 +335,18 @@ namespace IceBeam
                     PersScriptStatus.Text = "Running (Changes are disabled while script is being executed.)";
                     PersScriptStatus.ForeColor = Color.Green;
                     PersScriptTurnOff.Text = "Stop execution";
+                    PersScriptCode.Hide();
                 }
                 else
                 {
                     PersScriptStatus.Text = "Not running";
                     PersScriptStatus.ForeColor = Color.Red;
                     PersScriptTurnOff.Text = "Run script";
+                    PersScriptCode.Show();
                 }
             }
         }
 
-        private void PersScriptsList_ItemCheck(object sender, ItemCheckEventArgs e)
-        {
-            lh.Pulse(lh.settings.persscripts[e.Index]);
-        }
 
         #endregion
 
@@ -291,6 +363,7 @@ namespace IceBeam
             {
                 pattern_temporary_index = PatternsList.SelectedIndex;
                 PatternDetails.Show();
+                PatternRemove.Show();
                 PatternCategory.Value = lh.settings.patterns[pattern_temporary_index].category;
                 PatternName.Text = lh.settings.patterns[pattern_temporary_index].name;
                 PatternImage.Image = lh.settings.patterns[pattern_temporary_index].bmp;
@@ -309,6 +382,8 @@ namespace IceBeam
             lh.settings.patterns.RemoveAt(pattern_temporary_index);
             UpdatePatternList(lh.settings.patterns);
             pattern_temporary_index = -1;
+            PatternDetails.Hide();
+            PatternRemove.Hide();
         }
 
         private void PatternName_TextChanged(object sender, EventArgs e)
@@ -377,6 +452,7 @@ namespace IceBeam
             {
                 pointarea_temporary_index = PointsAreasList.SelectedIndex;
                 PointAreaDetails.Show();
+                PointAreaRemove.Show();
                 PointAreaName.Text = lh.settings.pointareas[pointarea_temporary_index].name;
                 PointAreaType.SelectedIndex = lh.settings.pointareas[pointarea_temporary_index].type;
                 PointAreaX.Value = lh.settings.pointareas[pointarea_temporary_index].point.X;
@@ -399,6 +475,8 @@ namespace IceBeam
             lh.settings.pointareas.RemoveAt(pointarea_temporary_index);
             UpdatePointAreaList(lh.settings.pointareas);
             pointarea_temporary_index = -1;
+            PointAreaRemove.Hide();
+            PointAreaDetails.Hide();
         }
 
         private void PointAreaName_TextChanged(object sender, EventArgs e)
@@ -416,6 +494,9 @@ namespace IceBeam
                 PointAreaSize.Show();
             else
                 PointAreaSize.Hide();
+            int temp = pointarea_temporary_index;
+            UpdatePointAreaList(lh.settings.pointareas);
+            PointsAreasList.SelectedIndex = temp;
         }
 
         private void PointAreaGet_Click(object sender, EventArgs e)
@@ -428,25 +509,125 @@ namespace IceBeam
         private void PointAreaX_ValueChanged(object sender, EventArgs e)
         {
             lh.settings.pointareas[pointarea_temporary_index].point.X = (int)PointAreaX.Value;
+            int temp = pointarea_temporary_index;
+            UpdatePointAreaList(lh.settings.pointareas);
+            PointsAreasList.SelectedIndex = temp;
         }
 
         private void PointAreaY_ValueChanged(object sender, EventArgs e)
         {
             lh.settings.pointareas[pointarea_temporary_index].point.Y = (int)PointAreaY.Value;
+            int temp = pointarea_temporary_index;
+            UpdatePointAreaList(lh.settings.pointareas);
+            PointsAreasList.SelectedIndex = temp;
         }
 
         private void PointAreaW_ValueChanged(object sender, EventArgs e)
         {
             lh.settings.pointareas[pointarea_temporary_index].size.Width = (int)PointAreaW.Value;
+            int temp = pointarea_temporary_index;
+            UpdatePointAreaList(lh.settings.pointareas);
+            PointsAreasList.SelectedIndex = temp;
         }
 
         private void PointAreaH_ValueChanged(object sender, EventArgs e)
         {
             lh.settings.pointareas[pointarea_temporary_index].size.Height = (int)PointAreaH.Value;
         }
+
+
         #endregion
 
+        #region VARIABLES
+        int variable_temporary_index = -1;
+        private void VariablesList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (VariablesList.SelectedIndex >= 0 && VariablesList.SelectedIndex < VariablesList.Items.Count)
+            {
+                variable_temporary_index = VariablesList.SelectedIndex;
+                VariableDetails.Show();
+                VariableRemove.Show();
+                VariableName.Text = lh.settings.variables[variable_temporary_index].name;
+                VariableValue.Text = lh.settings.variables[variable_temporary_index].value.ToString();
+            }
+        }
 
+        private void VariableNew_Click(object sender, EventArgs e)
+        {
+            lh.settings.variables.Add(new Variable());
+            UpdateVariableList(lh.settings.variables);
+            VariablesList.SelectedIndex = lh.settings.variables.Count - 1;
+        }
+
+        private void VariableRemove_Click(object sender, EventArgs e)
+        {
+            lh.settings.variables.RemoveAt(variable_temporary_index);
+            UpdateVariableList(lh.settings.variables);
+            variable_temporary_index = -1;
+            VariableRemove.Hide();
+            VariableDetails.Hide();
+        }
+
+        private void VariableName_TextChanged(object sender, EventArgs e)
+        {
+            lh.settings.variables[variable_temporary_index].name = VariableName.Text;
+            int temp = variable_temporary_index;
+            UpdateVariableList(lh.settings.variables);
+            VariablesList.SelectedIndex = temp;
+        }
+
+        private void VariableValue_TextChanged(object sender, EventArgs e)
+        {
+            lh.settings.variables[variable_temporary_index].value = VariableValue.Text as object;
+        }
+
+        #endregion
+
+        #region FUNCTIONS
+        int function_temporary_index = -1;
+        private void FunctionsList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (FunctionsList.SelectedIndex >= 0 && FunctionsList.SelectedIndex < FunctionsList.Items.Count)
+            {
+                function_temporary_index = FunctionsList.SelectedIndex;
+                FunctionDetails.Show();
+                FunctionRemove.Show();
+                FunctionName.Text = lh.settings.functions[function_temporary_index].name;
+                FunctionCode.Text = lh.settings.functions[function_temporary_index].code;
+            }
+        }
+
+        private void FunctionNew_Click(object sender, EventArgs e)
+        {
+            lh.settings.functions.Add(new Script());
+            UpdateFunctionList(lh.settings.functions);
+            FunctionsList.SelectedIndex = FunctionsList.Items.Count - 1;
+
+        }
+
+        private void FunctionName_TextChanged(object sender, EventArgs e)
+        {
+            lh.settings.functions[function_temporary_index].name = FunctionName.Text;
+            int temp = function_temporary_index;
+            UpdateFunctionList(lh.settings.functions);
+            FunctionsList.SelectedIndex = temp;
+
+        }
+
+        private void FunctionCode_TextChanged(object sender, EventArgs e)
+        {
+            lh.settings.functions[function_temporary_index].code = FunctionCode.Text;
+        }
+
+        private void FunctionRemove_Click(object sender, EventArgs e)
+        {
+            lh.settings.functions.RemoveAt(function_temporary_index);
+            UpdateFunctionList(lh.settings.functions);
+            function_temporary_index = -1;
+            FunctionDetails.Hide();
+            FunctionRemove.Hide();
+        }
+        #endregion
 
     }
 }

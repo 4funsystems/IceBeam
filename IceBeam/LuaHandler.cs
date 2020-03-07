@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -26,9 +28,24 @@ namespace IceBeam
         }
         public void LoadSettings(string path)
         {
+            if (File.Exists(path))
+            {
+                BinaryFormatter bf = new BinaryFormatter();
+                using (FileStream fs = new FileStream(path, FileMode.Open))
+                {
+                    settings = bf.Deserialize(fs) as Settings;
+                }
+                main.UpdateForm(settings);
+            }
         }
         public void SaveSettings(string path)
         {
+            if (!File.Exists(path)) File.Create(path).Close();
+            BinaryFormatter bf = new BinaryFormatter();
+            using (FileStream fs = new FileStream(path, FileMode.Open))
+            {
+                bf.Serialize(fs, settings);
+            }
         }
 
         public void Reset()
@@ -37,7 +54,6 @@ namespace IceBeam
             settings = new Settings();
             main.UpdateForm(settings);
             Initialize();
-
         }
 
 
@@ -68,21 +84,17 @@ namespace IceBeam
                            import('IceCore')");
 
         }
-        public void Debug(string s)
-        {
-            Main.Debug(s);
-        }
-        public void Clear()
-        {
-            Main.Clear();
-        }
         public void RegisterUserVariables()
         {
 
-            //Insert the user variables/points/areas as variables inside the lua object.      
+            //Insert the user variables/points/areas as variables inside the lua object.   
+            foreach (Pattern p in settings.patterns)
+            {
+                lua["pat_"+p.category+"_" + p.name] = p.bmp;
+            }
             foreach (Variable v in settings.variables)
             {
-                lua["$"+v.name] = v.value;
+                lua["$" + v.name] = v.value;
             }
             foreach (PointArea pa in settings.pointareas)
             {
@@ -139,9 +151,12 @@ namespace IceBeam
             ParameterizedThreadStart ts = new ParameterizedThreadStart(s.Execute);
             Thread t = new Thread(ts);
             t.Start(lua);
-            while (t.IsAlive || t.ThreadState == ThreadState.Running)
+            while (t.IsAlive || t.ThreadState == ThreadState.Running) 
             {
-                await Task.Delay(core.GetRandom(100, 150));
+                if (settings.persscripts[settings.persscripts.IndexOf(s)].enabled)
+                    await Task.Delay(core.GetRandom(100, 150));
+                else
+                    t.Abort();
             }
             if (settings.persscripts[settings.persscripts.IndexOf(s)].loop && settings.persscripts[settings.persscripts.IndexOf(s)].enabled)
             {

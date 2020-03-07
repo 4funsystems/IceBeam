@@ -43,6 +43,7 @@
             this.KeyScriptDetails = new System.Windows.Forms.GroupBox();
             this.KeyScriptCode = new System.Windows.Forms.RichTextBox();
             this.KeyScriptDetailsInfoPanel = new System.Windows.Forms.Panel();
+            this.KeyScriptEnabled = new System.Windows.Forms.CheckBox();
             this.KeyScriptSetKey = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.KeyScriptKey = new System.Windows.Forms.Label();
@@ -68,7 +69,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.PersScriptName = new System.Windows.Forms.TextBox();
             this.PersScriptsListPanel = new System.Windows.Forms.Panel();
-            this.PersScriptsList = new System.Windows.Forms.CheckedListBox();
+            this.PersScriptsList = new System.Windows.Forms.ListBox();
             this.PersScriptNew = new System.Windows.Forms.Button();
             this.PersScriptRemove = new System.Windows.Forms.Button();
             this.SettingsTab = new System.Windows.Forms.TabPage();
@@ -129,7 +130,7 @@
             this.FunctionsListPanel = new System.Windows.Forms.Panel();
             this.FunctionsList = new System.Windows.Forms.ListBox();
             this.FunctionNew = new System.Windows.Forms.Button();
-            this.RemoveNew = new System.Windows.Forms.Button();
+            this.FunctionRemove = new System.Windows.Forms.Button();
             this.TopMenu.SuspendLayout();
             this.MainControl.SuspendLayout();
             this.ScripterTab.SuspendLayout();
@@ -309,6 +310,7 @@
             // KeyScriptDetailsInfoPanel
             // 
             this.KeyScriptDetailsInfoPanel.AutoScroll = true;
+            this.KeyScriptDetailsInfoPanel.Controls.Add(this.KeyScriptEnabled);
             this.KeyScriptDetailsInfoPanel.Controls.Add(this.KeyScriptSetKey);
             this.KeyScriptDetailsInfoPanel.Controls.Add(this.label1);
             this.KeyScriptDetailsInfoPanel.Controls.Add(this.KeyScriptKey);
@@ -320,9 +322,20 @@
             this.KeyScriptDetailsInfoPanel.Size = new System.Drawing.Size(647, 45);
             this.KeyScriptDetailsInfoPanel.TabIndex = 6;
             // 
+            // KeyScriptEnabled
+            // 
+            this.KeyScriptEnabled.AutoSize = true;
+            this.KeyScriptEnabled.Location = new System.Drawing.Point(550, 11);
+            this.KeyScriptEnabled.Name = "KeyScriptEnabled";
+            this.KeyScriptEnabled.Size = new System.Drawing.Size(82, 21);
+            this.KeyScriptEnabled.TabIndex = 7;
+            this.KeyScriptEnabled.Text = "Enabled";
+            this.KeyScriptEnabled.UseVisualStyleBackColor = true;
+            this.KeyScriptEnabled.CheckedChanged += new System.EventHandler(this.KeyScriptEnabled_CheckedChanged);
+            // 
             // KeyScriptSetKey
             // 
-            this.KeyScriptSetKey.Location = new System.Drawing.Point(433, 9);
+            this.KeyScriptSetKey.Location = new System.Drawing.Point(469, 9);
             this.KeyScriptSetKey.Name = "KeyScriptSetKey";
             this.KeyScriptSetKey.Size = new System.Drawing.Size(75, 23);
             this.KeyScriptSetKey.TabIndex = 6;
@@ -341,7 +354,8 @@
             // 
             // KeyScriptKey
             // 
-            this.KeyScriptKey.Location = new System.Drawing.Point(363, 12);
+            this.KeyScriptKey.AutoSize = true;
+            this.KeyScriptKey.Location = new System.Drawing.Point(345, 11);
             this.KeyScriptKey.Name = "KeyScriptKey";
             this.KeyScriptKey.Size = new System.Drawing.Size(64, 17);
             this.KeyScriptKey.TabIndex = 5;
@@ -358,7 +372,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(321, 12);
+            this.label4.Location = new System.Drawing.Point(303, 11);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(36, 17);
             this.label4.TabIndex = 4;
@@ -435,9 +449,9 @@
             // PersScriptCode
             // 
             this.PersScriptCode.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PersScriptCode.Location = new System.Drawing.Point(3, 98);
+            this.PersScriptCode.Location = new System.Drawing.Point(3, 109);
             this.PersScriptCode.Name = "PersScriptCode";
-            this.PersScriptCode.Size = new System.Drawing.Size(647, 287);
+            this.PersScriptCode.Size = new System.Drawing.Size(647, 276);
             this.PersScriptCode.TabIndex = 7;
             this.PersScriptCode.Text = "";
             this.PersScriptCode.Visible = false;
@@ -456,14 +470,14 @@
             this.PersScriptDetailsInfoPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.PersScriptDetailsInfoPanel.Location = new System.Drawing.Point(3, 18);
             this.PersScriptDetailsInfoPanel.Name = "PersScriptDetailsInfoPanel";
-            this.PersScriptDetailsInfoPanel.Size = new System.Drawing.Size(647, 80);
+            this.PersScriptDetailsInfoPanel.Size = new System.Drawing.Size(647, 91);
             this.PersScriptDetailsInfoPanel.TabIndex = 6;
             // 
             // PersScriptTurnOff
             // 
-            this.PersScriptTurnOff.Location = new System.Drawing.Point(477, 46);
+            this.PersScriptTurnOff.Location = new System.Drawing.Point(490, 46);
             this.PersScriptTurnOff.Name = "PersScriptTurnOff";
-            this.PersScriptTurnOff.Size = new System.Drawing.Size(167, 28);
+            this.PersScriptTurnOff.Size = new System.Drawing.Size(151, 28);
             this.PersScriptTurnOff.TabIndex = 10;
             this.PersScriptTurnOff.Text = "Stop it";
             this.PersScriptTurnOff.UseVisualStyleBackColor = true;
@@ -493,7 +507,7 @@
             this.PersScriptLoopPanel.Controls.Add(this.label11);
             this.PersScriptLoopPanel.Controls.Add(this.PersScriptMax);
             this.PersScriptLoopPanel.Controls.Add(this.PersScriptMin);
-            this.PersScriptLoopPanel.Location = new System.Drawing.Point(378, 4);
+            this.PersScriptLoopPanel.Location = new System.Drawing.Point(375, 3);
             this.PersScriptLoopPanel.Name = "PersScriptLoopPanel";
             this.PersScriptLoopPanel.Size = new System.Drawing.Size(266, 37);
             this.PersScriptLoopPanel.TabIndex = 7;
@@ -556,7 +570,7 @@
             // PersScriptLoop
             // 
             this.PersScriptLoop.AutoSize = true;
-            this.PersScriptLoop.Location = new System.Drawing.Point(316, 12);
+            this.PersScriptLoop.Location = new System.Drawing.Point(303, 12);
             this.PersScriptLoop.Name = "PersScriptLoop";
             this.PersScriptLoop.Size = new System.Drawing.Size(66, 21);
             this.PersScriptLoop.TabIndex = 6;
@@ -596,6 +610,7 @@
             // 
             this.PersScriptsList.Dock = System.Windows.Forms.DockStyle.Left;
             this.PersScriptsList.FormattingEnabled = true;
+            this.PersScriptsList.ItemHeight = 16;
             this.PersScriptsList.Location = new System.Drawing.Point(0, 0);
             this.PersScriptsList.Name = "PersScriptsList";
             this.PersScriptsList.Size = new System.Drawing.Size(186, 388);
@@ -866,6 +881,16 @@
             // PointAreaH
             // 
             this.PointAreaH.Location = new System.Drawing.Point(286, 10);
+            this.PointAreaH.Maximum = new decimal(new int[] {
+            999999,
+            0,
+            0,
+            0});
+            this.PointAreaH.Minimum = new decimal(new int[] {
+            999999,
+            0,
+            0,
+            -2147483648});
             this.PointAreaH.Name = "PointAreaH";
             this.PointAreaH.Size = new System.Drawing.Size(120, 22);
             this.PointAreaH.TabIndex = 3;
@@ -874,6 +899,16 @@
             // PointAreaW
             // 
             this.PointAreaW.Location = new System.Drawing.Point(62, 10);
+            this.PointAreaW.Maximum = new decimal(new int[] {
+            999999,
+            0,
+            0,
+            0});
+            this.PointAreaW.Minimum = new decimal(new int[] {
+            999999,
+            0,
+            0,
+            -2147483648});
             this.PointAreaW.Name = "PointAreaW";
             this.PointAreaW.Size = new System.Drawing.Size(120, 22);
             this.PointAreaW.TabIndex = 2;
@@ -911,6 +946,16 @@
             // PointAreaY
             // 
             this.PointAreaY.Location = new System.Drawing.Point(286, 10);
+            this.PointAreaY.Maximum = new decimal(new int[] {
+            999999,
+            0,
+            0,
+            0});
+            this.PointAreaY.Minimum = new decimal(new int[] {
+            999999,
+            0,
+            0,
+            -2147483648});
             this.PointAreaY.Name = "PointAreaY";
             this.PointAreaY.Size = new System.Drawing.Size(120, 22);
             this.PointAreaY.TabIndex = 3;
@@ -919,6 +964,16 @@
             // PointAreaX
             // 
             this.PointAreaX.Location = new System.Drawing.Point(62, 10);
+            this.PointAreaX.Maximum = new decimal(new int[] {
+            999999,
+            0,
+            0,
+            0});
+            this.PointAreaX.Minimum = new decimal(new int[] {
+            999999,
+            0,
+            0,
+            -2147483648});
             this.PointAreaX.Name = "PointAreaX";
             this.PointAreaX.Size = new System.Drawing.Size(120, 22);
             this.PointAreaX.TabIndex = 2;
@@ -945,10 +1000,14 @@
             // PointAreaType
             // 
             this.PointAreaType.FormattingEnabled = true;
+            this.PointAreaType.Items.AddRange(new object[] {
+            "Area",
+            "Point"});
             this.PointAreaType.Location = new System.Drawing.Point(320, 21);
             this.PointAreaType.Name = "PointAreaType";
             this.PointAreaType.Size = new System.Drawing.Size(121, 24);
             this.PointAreaType.TabIndex = 3;
+            this.PointAreaType.Text = "Area";
             this.PointAreaType.SelectedIndexChanged += new System.EventHandler(this.PointAreaType_SelectedIndexChanged);
             // 
             // label8
@@ -1053,6 +1112,7 @@
             this.VariableValue.Name = "VariableValue";
             this.VariableValue.Size = new System.Drawing.Size(220, 22);
             this.VariableValue.TabIndex = 3;
+            this.VariableValue.TextChanged += new System.EventHandler(this.VariableValue_TextChanged);
             // 
             // label16
             // 
@@ -1069,6 +1129,7 @@
             this.VariableName.Name = "VariableName";
             this.VariableName.Size = new System.Drawing.Size(220, 22);
             this.VariableName.TabIndex = 1;
+            this.VariableName.TextChanged += new System.EventHandler(this.VariableName_TextChanged);
             // 
             // label15
             // 
@@ -1098,6 +1159,7 @@
             this.VariableNew.TabIndex = 1;
             this.VariableNew.Text = "New";
             this.VariableNew.UseVisualStyleBackColor = true;
+            this.VariableNew.Click += new System.EventHandler(this.VariableNew_Click);
             // 
             // VariablesList
             // 
@@ -1108,6 +1170,7 @@
             this.VariablesList.Name = "VariablesList";
             this.VariablesList.Size = new System.Drawing.Size(186, 388);
             this.VariablesList.TabIndex = 0;
+            this.VariablesList.SelectedIndexChanged += new System.EventHandler(this.VariablesList_SelectedIndexChanged);
             // 
             // VariableRemove
             // 
@@ -1118,6 +1181,7 @@
             this.VariableRemove.Text = "Remove";
             this.VariableRemove.UseVisualStyleBackColor = true;
             this.VariableRemove.Visible = false;
+            this.VariableRemove.Click += new System.EventHandler(this.VariableRemove_Click);
             // 
             // FunctionsTab
             // 
@@ -1152,6 +1216,7 @@
             this.FunctionCode.Size = new System.Drawing.Size(647, 322);
             this.FunctionCode.TabIndex = 9;
             this.FunctionCode.Text = "";
+            this.FunctionCode.TextChanged += new System.EventHandler(this.FunctionCode_TextChanged);
             // 
             // FunctionDetailsInfoPanel
             // 
@@ -1179,12 +1244,13 @@
             this.FunctionName.Name = "FunctionName";
             this.FunctionName.Size = new System.Drawing.Size(228, 22);
             this.FunctionName.TabIndex = 1;
+            this.FunctionName.TextChanged += new System.EventHandler(this.FunctionName_TextChanged);
             // 
             // FunctionsListPanel
             // 
             this.FunctionsListPanel.Controls.Add(this.FunctionsList);
             this.FunctionsListPanel.Controls.Add(this.FunctionNew);
-            this.FunctionsListPanel.Controls.Add(this.RemoveNew);
+            this.FunctionsListPanel.Controls.Add(this.FunctionRemove);
             this.FunctionsListPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.FunctionsListPanel.Location = new System.Drawing.Point(3, 3);
             this.FunctionsListPanel.Name = "FunctionsListPanel";
@@ -1200,6 +1266,7 @@
             this.FunctionsList.Name = "FunctionsList";
             this.FunctionsList.Size = new System.Drawing.Size(191, 388);
             this.FunctionsList.TabIndex = 3;
+            this.FunctionsList.SelectedIndexChanged += new System.EventHandler(this.FunctionsList_SelectedIndexChanged);
             // 
             // FunctionNew
             // 
@@ -1209,16 +1276,18 @@
             this.FunctionNew.TabIndex = 1;
             this.FunctionNew.Text = "New";
             this.FunctionNew.UseVisualStyleBackColor = true;
+            this.FunctionNew.Click += new System.EventHandler(this.FunctionNew_Click);
             // 
-            // RemoveNew
+            // FunctionRemove
             // 
-            this.RemoveNew.Location = new System.Drawing.Point(192, 36);
-            this.RemoveNew.Name = "RemoveNew";
-            this.RemoveNew.Size = new System.Drawing.Size(105, 29);
-            this.RemoveNew.TabIndex = 2;
-            this.RemoveNew.Text = "Remove";
-            this.RemoveNew.UseVisualStyleBackColor = true;
-            this.RemoveNew.Visible = false;
+            this.FunctionRemove.Location = new System.Drawing.Point(192, 36);
+            this.FunctionRemove.Name = "FunctionRemove";
+            this.FunctionRemove.Size = new System.Drawing.Size(105, 29);
+            this.FunctionRemove.TabIndex = 2;
+            this.FunctionRemove.Text = "Remove";
+            this.FunctionRemove.UseVisualStyleBackColor = true;
+            this.FunctionRemove.Visible = false;
+            this.FunctionRemove.Click += new System.EventHandler(this.FunctionRemove_Click);
             // 
             // Main
             // 
@@ -1328,7 +1397,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox PersScriptName;
         private System.Windows.Forms.Panel PersScriptsListPanel;
-        private System.Windows.Forms.CheckedListBox PersScriptsList;
         private System.Windows.Forms.Button PersScriptNew;
         private System.Windows.Forms.Button PersScriptRemove;
         private System.Windows.Forms.Label label7;
@@ -1352,7 +1420,7 @@
         private System.Windows.Forms.GroupBox FunctionDetails;
         private System.Windows.Forms.Panel FunctionsListPanel;
         private System.Windows.Forms.Button FunctionNew;
-        private System.Windows.Forms.Button RemoveNew;
+        private System.Windows.Forms.Button FunctionRemove;
         private System.Windows.Forms.ToolStripMenuItem MenuConsole;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.PictureBox PatternImage;
@@ -1389,6 +1457,8 @@
         private System.Windows.Forms.TextBox FunctionName;
         private System.Windows.Forms.ListBox FunctionsList;
         private System.Windows.Forms.Button KeyScriptSetKey;
+        private System.Windows.Forms.CheckBox KeyScriptEnabled;
+        private System.Windows.Forms.ListBox PersScriptsList;
     }
 }
 

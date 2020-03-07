@@ -13,22 +13,20 @@ namespace IceBeam
     public partial class KeyForm : Form
     {
         Main main;
-        int id;
-        public KeyForm(int id, Main m)
+        public KeyForm(Main m)
         {
             InitializeComponent();
             main = m;
-            this.id = id;
             this.KeyDown += KeyForm_KeyPress;
         }
 
         private void KeyForm_Load(object sender, EventArgs e)
         {
-
+            this.Location = new Point(main.Location.X + (main.Size.Width / 2) - (this.Size.Width / 2), main.Location.Y + (main.Size.Height / 2) - (this.Size.Height / 2));
         }
         private void KeyForm_KeyPress(object sender, KeyEventArgs e)
         {
-            main.SetKey(id,e.KeyValue);
+            main.SetKey(e.KeyValue);
             this.Close();
         }
     }

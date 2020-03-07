@@ -24,7 +24,10 @@ namespace IceBeam
         public string name = "";
         public int category = 0;
         public Bitmap bmp = new Bitmap(1, 1);
-
+        public Pattern()
+        {
+            this.name = "New Pattern";
+        }
         public void Save(string dirpath)
         {
             bmp.Save(dirpath + category + "-" + name, System.Drawing.Imaging.ImageFormat.Png);
@@ -40,7 +43,10 @@ namespace IceBeam
     {
         public string name = "";
         public string code = "";
-
+        public Script()
+        {
+            this.name = "New Function";
+        }
         public void Execute(object lua_object)
         {
             Lua lua = lua_object as Lua;
@@ -60,10 +66,15 @@ namespace IceBeam
     [Serializable]
     public class KeyScript : Script
     {
-        public int key = 0;
+        public int key = 27;
+        public bool enabled = false;
+        public KeyScript()
+        {
+            this.name = "New Key Script";
+        }
         public override string ToString()
         {
-            return "["+Main.GetKeyCode(key)+"] "+name;
+            return "["+(key!=27?Main.GetKeyCode(key):"NotSet")+"] "+name;
         }
     }
     [Serializable]
@@ -73,6 +84,10 @@ namespace IceBeam
         public bool loop = false;
         public int min = 1000;
         public int max = 5000;
+        public PersScript()
+        {
+            this.name = "New Persistent Script";
+        }
         public override string ToString()
         {
             return "["+(enabled?"ON":"OFF")+"] "+ (loop ? "{" + min + " to " + max + "} " : "") + name;
@@ -82,7 +97,11 @@ namespace IceBeam
     public class Variable
     {
         public string name = "";
-        public object value = null;
+        public object value = "";
+        public Variable()
+        {
+            this.name = "New Variable";
+        }
         public override string ToString()
         {
             return name + " - " + value.ToString();
@@ -96,9 +115,17 @@ namespace IceBeam
         public int type = 0;
         public Point point = Point.Empty;
         public Size size = Size.Empty;
+        public PointArea()
+        {
+            this.name = "New Point-Area";
+        }
         public Rectangle GetRectangle()
         {
             return new Rectangle(point, size);
+        }
+        public override string ToString()
+        {
+            return (type==0?"[A]":"[P]")+name+(type==0?" {x:"+point.X+",y:"+point.Y+",w:"+size.Width+",h:"+size.Height+"}": "{x:" + point.X + ",y:" + point.Y + "}");
         }
     }
 }

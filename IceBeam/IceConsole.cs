@@ -25,17 +25,21 @@ namespace IceBeam
         }
         public void Write (string s)
         {
-            if (ConsoleList.Items.Count > 50)
+            if (s != null)
             {
-                ConsoleList.Items.RemoveAt(0);
+                if (ConsoleList.Items.Count > 50)
+                {
+                    ConsoleList.Items.RemoveAt(0);
+                }
+                ConsoleList.Items.Add(s);
             }
-            ConsoleList.Items.Add(s);
         }
         public void Clear()
         {
             ConsoleList.Items.Clear();
         }
-        public void SendCommand()
+
+        private void Button1_Click(object sender, EventArgs e)
         {
             m.lh.ExecuteText(textBox1.Text);
         }

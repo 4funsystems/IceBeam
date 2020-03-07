@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.ConsoleList = new System.Windows.Forms.ListBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -45,14 +45,6 @@
             this.panel1.Size = new System.Drawing.Size(800, 46);
             this.panel1.TabIndex = 0;
             // 
-            // textBox1
-            // 
-            this.textBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.textBox1.Location = new System.Drawing.Point(0, 0);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(800, 22);
-            this.textBox1.TabIndex = 0;
-            // 
             // button1
             // 
             this.button1.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -62,6 +54,15 @@
             this.button1.TabIndex = 1;
             this.button1.Text = "Send command";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.textBox1.Location = new System.Drawing.Point(0, 0);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(800, 22);
+            this.textBox1.TabIndex = 0;
             // 
             // ConsoleList
             // 

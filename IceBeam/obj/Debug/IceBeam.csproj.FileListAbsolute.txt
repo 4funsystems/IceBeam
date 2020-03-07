@@ -19,3 +19,4 @@ D:\GitHub\ICBM\IceBeam\IceBeam\bin\Debug\KeraLua.dll
 D:\GitHub\ICBM\IceBeam\IceBeam\bin\Debug\NLua.dll
 D:\GitHub\ICBM\IceBeam\IceBeam\bin\Debug\KeraLua.xml
 D:\GitHub\ICBM\IceBeam\IceBeam\obj\Debug\IceBeam.KeyForm.resources
+D:\GitHub\ICBM\IceBeam\IceBeam\obj\Debug\IceBeam.Overlay.resources
