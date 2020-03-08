@@ -7,4 +7,4 @@
 ### Is it configurable?
 Yes, and its modular engine allows you to create your own functions based on the types it manages.
 ### How to use it?
-You can check our [documentation](https://github.com/4funsystems/IceBeam/wiki/1.1-Scripter)
+You can check our [documentation](https://github.com/4funsystems/IceBeam/wiki/1.-IceBeam-Wiki)
