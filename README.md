@@ -1,4 +1,4 @@
-# ICBM - IceBeam
+# ICBM - IceBeam [![Build Status](https://travis-ci.org/4funsystems/IceBeam.svg?branch=master)](https://travis-ci.org/4funsystems/IceBeam)
 ## Image Comparition Based Macro
 
 ### What is IceBeam?
