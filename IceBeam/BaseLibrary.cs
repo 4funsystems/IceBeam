@@ -131,5 +131,15 @@ namespace IceBeam
         {
             luahandler.core.SetCursor(location);
         }
+        public void Write(string text)
+        {
+            luahandler.core.KeySend_SendWait(text);
+            luahandler.core.KeySend_SendWait("{ENTER}");
+        }
+        public void SendKBD(string text)
+        {
+            luahandler.core.KeySend_SendWait(text);
+        }
+
     }
 }

@@ -80,7 +80,7 @@ namespace IceBeam
         public void InsertTypes()
         {
             lua.LoadCLRPackage();
-            lua.DoString(@"import ('IceBeam')");
+            lua.DoString(@"import ('IceBeam') ");
 
         }
         public void RegisterUserVariables()
