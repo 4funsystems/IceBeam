@@ -21,6 +21,7 @@ namespace IceBeam
         public Thread executing_thread;
         public BaseLibrary baselib;
         public Main main;
+        public Color chromaColor = Color.FromArgb(253, 4, 172);
         public LuaHandler(Main m)
         {
             this.main = m;
@@ -76,12 +77,10 @@ namespace IceBeam
 
 
         }
-
         public void InsertTypes()
         {
             lua.LoadCLRPackage();
-            lua.DoString(@"import('System.Drawing')
-                           import('IceCore')");
+            lua.DoString(@"import ('IceBeam')");
 
         }
         public void RegisterUserVariables()
@@ -90,7 +89,7 @@ namespace IceBeam
             //Insert the user variables/points/areas as variables inside the lua object.   
             foreach (Pattern p in settings.patterns)
             {
-                lua["pat_"+p.category+"_" + p.name] = p.bmp;
+                lua["pat_"+p.category+"_" + p.name] = p;
             }
             foreach (Variable v in settings.variables)
             {
