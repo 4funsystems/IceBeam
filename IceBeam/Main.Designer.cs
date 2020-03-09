@@ -125,13 +125,13 @@
             this.FunctionDetails = new System.Windows.Forms.GroupBox();
             this.FunctionCode = new System.Windows.Forms.RichTextBox();
             this.FunctionDetailsInfoPanel = new System.Windows.Forms.Panel();
+            this.FunctionRun = new System.Windows.Forms.Button();
             this.label17 = new System.Windows.Forms.Label();
             this.FunctionName = new System.Windows.Forms.TextBox();
             this.FunctionsListPanel = new System.Windows.Forms.Panel();
             this.FunctionsList = new System.Windows.Forms.ListBox();
             this.FunctionNew = new System.Windows.Forms.Button();
             this.FunctionRemove = new System.Windows.Forms.Button();
-            this.FunctionRun = new System.Windows.Forms.Button();
             this.TopMenu.SuspendLayout();
             this.MainControl.SuspendLayout();
             this.ScripterTab.SuspendLayout();
@@ -692,17 +692,18 @@
             // 
             this.panel4.Controls.Add(this.PatternImage);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(3, 87);
+            this.panel4.Location = new System.Drawing.Point(3, 97);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(647, 298);
+            this.panel4.Size = new System.Drawing.Size(647, 288);
             this.panel4.TabIndex = 11;
             // 
             // PatternImage
             // 
+            this.PatternImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.PatternImage.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PatternImage.Location = new System.Drawing.Point(0, 0);
             this.PatternImage.Name = "PatternImage";
-            this.PatternImage.Size = new System.Drawing.Size(647, 298);
+            this.PatternImage.Size = new System.Drawing.Size(647, 288);
             this.PatternImage.TabIndex = 10;
             this.PatternImage.TabStop = false;
             // 
@@ -718,14 +719,14 @@
             this.PatternDetailsInfoPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.PatternDetailsInfoPanel.Location = new System.Drawing.Point(3, 18);
             this.PatternDetailsInfoPanel.Name = "PatternDetailsInfoPanel";
-            this.PatternDetailsInfoPanel.Size = new System.Drawing.Size(647, 69);
+            this.PatternDetailsInfoPanel.Size = new System.Drawing.Size(647, 79);
             this.PatternDetailsInfoPanel.TabIndex = 10;
             // 
             // PatternScreen
             // 
             this.PatternScreen.Location = new System.Drawing.Point(131, 40);
             this.PatternScreen.Name = "PatternScreen";
-            this.PatternScreen.Size = new System.Drawing.Size(118, 23);
+            this.PatternScreen.Size = new System.Drawing.Size(183, 33);
             this.PatternScreen.TabIndex = 12;
             this.PatternScreen.Text = "Get from screen";
             this.PatternScreen.UseVisualStyleBackColor = true;
@@ -733,9 +734,9 @@
             // 
             // PatternSave
             // 
-            this.PatternSave.Location = new System.Drawing.Point(255, 40);
+            this.PatternSave.Location = new System.Drawing.Point(324, 40);
             this.PatternSave.Name = "PatternSave";
-            this.PatternSave.Size = new System.Drawing.Size(118, 23);
+            this.PatternSave.Size = new System.Drawing.Size(118, 33);
             this.PatternSave.TabIndex = 7;
             this.PatternSave.Text = "Save to file";
             this.PatternSave.UseVisualStyleBackColor = true;
@@ -745,7 +746,7 @@
             // 
             this.PatternLoad.Location = new System.Drawing.Point(7, 40);
             this.PatternLoad.Name = "PatternLoad";
-            this.PatternLoad.Size = new System.Drawing.Size(118, 23);
+            this.PatternLoad.Size = new System.Drawing.Size(118, 33);
             this.PatternLoad.TabIndex = 11;
             this.PatternLoad.Text = "Load from file";
             this.PatternLoad.UseVisualStyleBackColor = true;
@@ -1231,6 +1232,16 @@
             this.FunctionDetailsInfoPanel.Size = new System.Drawing.Size(647, 45);
             this.FunctionDetailsInfoPanel.TabIndex = 8;
             // 
+            // FunctionRun
+            // 
+            this.FunctionRun.Location = new System.Drawing.Point(557, 9);
+            this.FunctionRun.Name = "FunctionRun";
+            this.FunctionRun.Size = new System.Drawing.Size(75, 23);
+            this.FunctionRun.TabIndex = 2;
+            this.FunctionRun.Text = "Run";
+            this.FunctionRun.UseVisualStyleBackColor = true;
+            this.FunctionRun.Click += new System.EventHandler(this.FunctionRun_Click);
+            // 
             // label17
             // 
             this.label17.AutoSize = true;
@@ -1291,16 +1302,6 @@
             this.FunctionRemove.Visible = false;
             this.FunctionRemove.Click += new System.EventHandler(this.FunctionRemove_Click);
             // 
-            // FunctionRun
-            // 
-            this.FunctionRun.Location = new System.Drawing.Point(557, 9);
-            this.FunctionRun.Name = "FunctionRun";
-            this.FunctionRun.Size = new System.Drawing.Size(75, 23);
-            this.FunctionRun.TabIndex = 2;
-            this.FunctionRun.Text = "Run";
-            this.FunctionRun.UseVisualStyleBackColor = true;
-            this.FunctionRun.Click += new System.EventHandler(this.FunctionRun_Click);
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1310,6 +1311,7 @@
             this.Controls.Add(this.TopMenu);
             this.MainMenuStrip = this.TopMenu;
             this.Name = "Main";
+            this.ShowIcon = false;
             this.Text = "IceBeam";
             this.TopMenu.ResumeLayout(false);
             this.TopMenu.PerformLayout();

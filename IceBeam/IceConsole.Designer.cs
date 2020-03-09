@@ -82,7 +82,8 @@
             this.Controls.Add(this.ConsoleList);
             this.Controls.Add(this.panel1);
             this.Name = "IceConsole";
-            this.Text = "IceConsole";
+            this.ShowIcon = false;
+            this.Text = "Console";
             this.Load += new System.EventHandler(this.IceConsole_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
