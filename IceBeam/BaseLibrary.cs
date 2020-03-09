@@ -158,5 +158,11 @@ namespace IceBeam
             int x = luahandler.core.GetRandom(a, b);
             Thread.Sleep(x);
         }
+        public void SetGlobalPattern(Bitmap _bmp, string _name, int _category)
+        {
+            luahandler.settings.patterns.Add(new Pattern() { bmp = _bmp, name = _name, category = _category });
+            luahandler.main.UpdateForm(luahandler.settings);
+        }
+
     }
 }
