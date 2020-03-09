@@ -1003,13 +1003,13 @@
             // 
             this.PointRectType.FormattingEnabled = true;
             this.PointRectType.Items.AddRange(new object[] {
-            "Area",
+            "Rectangle",
             "Point"});
             this.PointRectType.Location = new System.Drawing.Point(320, 21);
             this.PointRectType.Name = "PointRectType";
             this.PointRectType.Size = new System.Drawing.Size(121, 24);
             this.PointRectType.TabIndex = 3;
-            this.PointRectType.Text = "Area";
+            this.PointRectType.Text = "Rectangle";
             this.PointRectType.SelectedIndexChanged += new System.EventHandler(this.PointRectType_SelectedIndexChanged);
             // 
             // label8
