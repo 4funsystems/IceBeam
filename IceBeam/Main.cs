@@ -409,6 +409,9 @@ namespace IceBeam
         private void PatternLoad_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
+            ofd.DefaultExt = "png";
+            ofd.Filter = "PNG Image file (.png) | *.png";
+            ofd.ValidateNames = true;
             if (ofd.ShowDialog() == DialogResult.OK)
                 PatternImage.Image = Image.FromFile(ofd.FileName);
         }
@@ -423,6 +426,9 @@ namespace IceBeam
         private void PatternSave_Click(object sender, EventArgs e)
         {
             SaveFileDialog sfd = new SaveFileDialog();
+            sfd.DefaultExt = "png";
+            sfd.Filter = "PNG Image file (.png) | *.png";
+            sfd.ValidateNames = true;
             if (sfd.ShowDialog() == DialogResult.OK)
                 lh.settings.patterns[pattern_temporary_index].Save(sfd.FileName);
         }
