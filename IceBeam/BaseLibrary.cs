@@ -18,7 +18,7 @@ namespace IceBeam
         }
         public void RegisterFunctions()
         {
-            luahandler.lua.RegisterFunction("debug", this, this.GetType().GetMethod("Debug"));
+            luahandler.lua.RegisterFunction("log", this, this.GetType().GetMethod("Log"));
             luahandler.lua.RegisterFunction("clear", this, this.GetType().GetMethod("Clear"));
             luahandler.lua.RegisterFunction("lclick", this, this.GetType().GetMethod("LClick"));
             luahandler.lua.RegisterFunction("rclick", this, this.GetType().GetMethod("RClick"));
@@ -104,9 +104,9 @@ namespace IceBeam
         {
             return luahandler.core.Find(pat.bmp, big, luahandler.chromaColor);
         }
-        public void Debug(string s)
+        public void Log(string s)
         {
-            Main.Debug(s);
+            Main.Log(s);
         }
         public void Clear()
         {

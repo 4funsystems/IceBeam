@@ -32,7 +32,7 @@ namespace IceBeam
         #region STATIC FUNCTIONS
         [DllImport("user32.dll", SetLastError = true)]
         static extern bool SetProcessDPIAware();
-        public static void Debug(string s)
+        public static void Log(string s)
         {
             console.Write(s);
         }

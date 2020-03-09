@@ -55,7 +55,7 @@ namespace IceBeam
                 lua.DoString(this.code);
             }catch(Exception e)
             {
-                Main.Debug(e.Message);
+                Main.Log(e.Message);
             }
         }
         public override string ToString()

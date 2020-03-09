@@ -119,7 +119,7 @@ namespace IceBeam
             }
             catch (Exception e)
             {
-                Main.Debug(e.Message);
+                Main.Log(e.Message);
             }
         }
 
