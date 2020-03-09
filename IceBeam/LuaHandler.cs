@@ -37,6 +37,7 @@ namespace IceBeam
                     settings = bf.Deserialize(fs) as Settings;
                 }
                 main.UpdateForm(settings);
+                Initialize();
             }
         }
         public void SaveSettings(string path)

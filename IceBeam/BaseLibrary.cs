@@ -37,7 +37,9 @@ namespace IceBeam
             luahandler.lua.RegisterFunction("findpatternonarea", this, this.GetType().GetMethod("FindPatOne"));
             luahandler.lua.RegisterFunction("findimageonarea", this, this.GetType().GetMethod("FindImageOnArea"));
             luahandler.lua.RegisterFunction("findimagesonarea", this, this.GetType().GetMethod("FindImagesOnArea"));
-
+            luahandler.lua.RegisterFunction("write", this, this.GetType().GetMethod("Write"));
+            luahandler.lua.RegisterFunction("sendkeyboard", this, this.GetType().GetMethod("SendKBD"));
+            luahandler.lua.RegisterFunction("saveimage", this, this.GetType().GetMethod("SaveImage"));
 
         }
 
@@ -140,6 +142,9 @@ namespace IceBeam
         {
             luahandler.core.KeySend_SendWait(text);
         }
-
+        public void SaveImage(Bitmap bmp, string path)
+        {
+            bmp.Save(path);
+        }
     }
 }
