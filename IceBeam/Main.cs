@@ -366,7 +366,7 @@ namespace IceBeam
                 PatternRemove.Show();
                 PatternCategory.Value = lh.settings.patterns[pattern_temporary_index].category;
                 PatternName.Text = lh.settings.patterns[pattern_temporary_index].name;
-                PatternImage.Image = lh.settings.patterns[pattern_temporary_index].bmp;
+                PatternImage.BackgroundImage = lh.settings.patterns[pattern_temporary_index].bmp;
             }
         }
 
@@ -413,7 +413,10 @@ namespace IceBeam
             ofd.Filter = "PNG Image file (.png) | *.png";
             ofd.ValidateNames = true;
             if (ofd.ShowDialog() == DialogResult.OK)
-                PatternImage.Image = Image.FromFile(ofd.FileName);
+            {
+                PatternImage.BackgroundImage = Image.FromFile(ofd.FileName);
+
+            }
         }
 
         private void PatternScreen_Click(object sender, EventArgs e)
