@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -40,6 +41,8 @@ namespace IceBeam
             luahandler.lua.RegisterFunction("write", this, this.GetType().GetMethod("Write"));
             luahandler.lua.RegisterFunction("sendkeyboard", this, this.GetType().GetMethod("SendKBD"));
             luahandler.lua.RegisterFunction("saveimage", this, this.GetType().GetMethod("SaveImage"));
+            luahandler.lua.RegisterFunction("random", this, this.GetType().GetMethod("Random"));
+            luahandler.lua.RegisterFunction("wait", this, this.GetType().GetMethod("Wait"));
 
         }
 
@@ -145,6 +148,15 @@ namespace IceBeam
         public void SaveImage(Bitmap bmp, string path)
         {
             bmp.Save(path);
+        }
+        public int Random(int a, int b)
+        {
+            return luahandler.core.GetRandom(a, b);
+        }
+        public void Wait(int a, int b)
+        {
+            int x = luahandler.core.GetRandom(a, b);
+            Thread.Sleep(x);
         }
     }
 }
