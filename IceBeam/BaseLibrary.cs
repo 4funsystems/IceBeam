@@ -43,6 +43,9 @@ namespace IceBeam
             luahandler.lua.RegisterFunction("saveimage", this, this.GetType().GetMethod("SaveImage"));
             luahandler.lua.RegisterFunction("random", this, this.GetType().GetMethod("Random"));
             luahandler.lua.RegisterFunction("wait", this, this.GetType().GetMethod("Wait"));
+            luahandler.lua.RegisterFunction("pattern", this, this.GetType().GetMethod("pattern"));
+            luahandler.lua.RegisterFunction("savepattern", this, this.GetType().GetMethod("SavePattern"));
+
 
         }
 
@@ -158,9 +161,13 @@ namespace IceBeam
             int x = luahandler.core.GetRandom(a, b);
             Thread.Sleep(x);
         }
-        public void SetGlobalPattern(Bitmap _bmp, string _name, int _category)
+        public Pattern pattern(Bitmap _bmp, string _name, int _category)
         {
-            luahandler.settings.patterns.Add(new Pattern() { bmp = _bmp, name = _name, category = _category });
+            return new Pattern() { bmp = _bmp, name = _name, category = _category };
+        }
+        public void SavePattern(Pattern pattern)
+        {
+            luahandler.settings.patterns.Add(pattern);
             luahandler.main.UpdateForm(luahandler.settings);
         }
 
