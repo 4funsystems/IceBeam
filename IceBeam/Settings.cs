@@ -14,7 +14,7 @@ namespace IceBeam
         public List<Pattern> patterns = new List<Pattern>();
         public List<Script> functions = new List<Script>();
         public List<Variable> variables = new List<Variable>();
-        public List<PointArea> pointareas = new List<PointArea>();
+        public List<PointRect> pointrects = new List<PointRect>();
         public List<KeyScript> keyscripts = new List<KeyScript>();
         public List<PersScript> persscripts = new List<PersScript>();
     }
@@ -109,13 +109,13 @@ namespace IceBeam
 
     }
     [Serializable]
-    public class PointArea
+    public class PointRect
     {
         public string name = "";
         public int type = 0;
         public Point point = Point.Empty;
         public Size size = Size.Empty;
-        public PointArea()
+        public PointRect()
         {
             this.name = "New Point-Area";
         }

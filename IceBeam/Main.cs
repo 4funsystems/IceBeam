@@ -52,7 +52,7 @@ namespace IceBeam
             UpdateKeyScriptList(settings.keyscripts);
             UpdatePersScriptList(settings.persscripts);
             UpdatePatternList(settings.patterns);
-            UpdatePointAreaList(settings.pointareas);
+            UpdatePointsRectsList(settings.pointrects);
             UpdateVariableList(settings.variables);
             UpdateFunctionList(settings.functions);
         }
@@ -76,11 +76,11 @@ namespace IceBeam
             foreach (Pattern p in patterns)
                 PatternsList.Items.Add(p.ToString());
         }
-        void UpdatePointAreaList(List<PointArea> pointareas)
+        void UpdatePointsRectsList(List<PointRect> pointrects)
         {
-            PointsAreasList.Items.Clear();
-            foreach (PointArea pa in pointareas)
-                PointsAreasList.Items.Add(pa.ToString());
+            PointsRectsList.Items.Clear();
+            foreach (PointRect pa in pointrects)
+                PointsRectsList.Items.Add(pa.ToString());
         }
         void UpdateVariableList(List<Variable> variables)
         {
@@ -434,119 +434,119 @@ namespace IceBeam
         }
         #endregion;
 
-        #region POINTS AREAS
-        int pointarea_temporary_index = -1;
-        public void SetPointAreaProperties(Point pt)
+        #region POINTS RECTS
+        int pointrect_temporary_index = -1;
+        public void SetPointRectProperties(Point pt)
         {
-            PointAreaX.Value = pt.X;
-            PointAreaY.Value = pt.Y;
+            PointRectX.Value = pt.X;
+            PointRectY.Value = pt.Y;
         }
 
-        public void SetPointAreaProperties(Rectangle rect)
+        public void SetPointRectProperties(Rectangle rect)
         {
 
-            PointAreaX.Value = rect.X;
-            PointAreaY.Value = rect.Y;
-            PointAreaW.Value = rect.Width;
-            PointAreaH.Value = rect.Height;
+            PointRectX.Value = rect.X;
+            PointRectY.Value = rect.Y;
+            PointRectW.Value = rect.Width;
+            PointRectH.Value = rect.Height;
         }
 
-        private void PointsAreasList_SelectedIndexChanged(object sender, EventArgs e)
+        private void PointsRectsList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (PointsAreasList.SelectedIndex >= 0 && PointsAreasList.SelectedIndex < PointsAreasList.Items.Count)
+            if (PointsRectsList.SelectedIndex >= 0 && PointsRectsList.SelectedIndex < PointsRectsList.Items.Count)
             {
-                pointarea_temporary_index = PointsAreasList.SelectedIndex;
-                PointAreaDetails.Show();
-                PointAreaRemove.Show();
-                PointAreaName.Text = lh.settings.pointareas[pointarea_temporary_index].name;
-                PointAreaType.SelectedIndex = lh.settings.pointareas[pointarea_temporary_index].type;
-                PointAreaX.Value = lh.settings.pointareas[pointarea_temporary_index].point.X;
-                PointAreaY.Value = lh.settings.pointareas[pointarea_temporary_index].point.Y;
-                PointAreaW.Value = lh.settings.pointareas[pointarea_temporary_index].size.Width;
-                PointAreaH.Value = lh.settings.pointareas[pointarea_temporary_index].size.Height;
+                pointrect_temporary_index = PointsRectsList.SelectedIndex;
+                PointRectDetails.Show();
+                PointRectRemove.Show();
+                PointRectName.Text = lh.settings.pointrects[pointrect_temporary_index].name;
+                PointRectType.SelectedIndex = lh.settings.pointrects[pointrect_temporary_index].type;
+                PointRectX.Value = lh.settings.pointrects[pointrect_temporary_index].point.X;
+                PointRectY.Value = lh.settings.pointrects[pointrect_temporary_index].point.Y;
+                PointRectW.Value = lh.settings.pointrects[pointrect_temporary_index].size.Width;
+                PointRectH.Value = lh.settings.pointrects[pointrect_temporary_index].size.Height;
             }
         }
 
-        private void PointAreaNew_Click(object sender, EventArgs e)
+        private void PointRectNew_Click(object sender, EventArgs e)
         {
-            lh.settings.pointareas.Add(new PointArea());
-            UpdatePointAreaList(lh.settings.pointareas);
-            PointsAreasList.SelectedIndex = lh.settings.pointareas.Count - 1;
+            lh.settings.pointrects.Add(new PointRect());
+            UpdatePointsRectsList(lh.settings.pointrects);
+            PointsRectsList.SelectedIndex = lh.settings.pointrects.Count - 1;
             lh.RegisterUserVariables();
 
         }
 
-        private void PointAreaRemove_Click(object sender, EventArgs e)
+        private void PointRectRemove_Click(object sender, EventArgs e)
         {
-            lh.settings.pointareas.RemoveAt(pointarea_temporary_index);
-            UpdatePointAreaList(lh.settings.pointareas);
-            pointarea_temporary_index = -1;
-            PointAreaRemove.Hide();
-            PointAreaDetails.Hide();
+            lh.settings.pointrects.RemoveAt(pointrect_temporary_index);
+            UpdatePointsRectsList(lh.settings.pointrects);
+            pointrect_temporary_index = -1;
+            PointRectRemove.Hide();
+            PointRectDetails.Hide();
         }
 
-        private void PointAreaName_TextChanged(object sender, EventArgs e)
+        private void PointRectName_TextChanged(object sender, EventArgs e)
         {
-            lh.settings.pointareas[pointarea_temporary_index].name = PointAreaName.Text;
-            int temp = pointarea_temporary_index;
-            UpdatePointAreaList(lh.settings.pointareas);
-            PointsAreasList.SelectedIndex = temp;
+            lh.settings.pointrects[pointrect_temporary_index].name = PointRectName.Text;
+            int temp = pointrect_temporary_index;
+            UpdatePointsRectsList(lh.settings.pointrects);
+            PointsRectsList.SelectedIndex = temp;
             lh.RegisterUserVariables();
         }
 
-        private void PointAreaType_SelectedIndexChanged(object sender, EventArgs e)
+        private void PointRectType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            lh.settings.pointareas[pointarea_temporary_index].type = PointAreaType.SelectedIndex;
-            if (PointAreaType.SelectedIndex == 0)
-                PointAreaSize.Show();
+            lh.settings.pointrects[pointrect_temporary_index].type = PointRectType.SelectedIndex;
+            if (PointRectType.SelectedIndex == 0)
+                PointRectSize.Show();
             else
-                PointAreaSize.Hide();
-            int temp = pointarea_temporary_index;
-            UpdatePointAreaList(lh.settings.pointareas);
-            PointsAreasList.SelectedIndex = temp;
+                PointRectSize.Hide();
+            int temp = pointrect_temporary_index;
+            UpdatePointsRectsList(lh.settings.pointrects);
+            PointsRectsList.SelectedIndex = temp;
             lh.RegisterUserVariables();
         }
 
-        private void PointAreaGet_Click(object sender, EventArgs e)
+        private void PointRectGet_Click(object sender, EventArgs e)
         {
-            Overlay ov = new Overlay(this, lh.settings.pointareas[pointarea_temporary_index].type + 1);
+            Overlay ov = new Overlay(this, lh.settings.pointrects[pointrect_temporary_index].type + 1);
             ov.Show();
             this.Hide();
         }
 
-        private void PointAreaX_ValueChanged(object sender, EventArgs e)
+        private void PointRectX_ValueChanged(object sender, EventArgs e)
         {
-            lh.settings.pointareas[pointarea_temporary_index].point.X = (int)PointAreaX.Value;
-            int temp = pointarea_temporary_index;
-            UpdatePointAreaList(lh.settings.pointareas);
-            PointsAreasList.SelectedIndex = temp;
+            lh.settings.pointrects[pointrect_temporary_index].point.X = (int)PointRectX.Value;
+            int temp = pointrect_temporary_index;
+            UpdatePointsRectsList(lh.settings.pointrects);
+            PointsRectsList.SelectedIndex = temp;
             lh.RegisterUserVariables();
         }
 
-        private void PointAreaY_ValueChanged(object sender, EventArgs e)
+        private void PointRectY_ValueChanged(object sender, EventArgs e)
         {
-            lh.settings.pointareas[pointarea_temporary_index].point.Y = (int)PointAreaY.Value;
-            int temp = pointarea_temporary_index;
-            UpdatePointAreaList(lh.settings.pointareas);
-            PointsAreasList.SelectedIndex = temp;
+            lh.settings.pointrects[pointrect_temporary_index].point.Y = (int)PointRectY.Value;
+            int temp = pointrect_temporary_index;
+            UpdatePointsRectsList(lh.settings.pointrects);
+            PointsRectsList.SelectedIndex = temp;
             lh.RegisterUserVariables();
         }
 
-        private void PointAreaW_ValueChanged(object sender, EventArgs e)
+        private void PointRectW_ValueChanged(object sender, EventArgs e)
         {
-            lh.settings.pointareas[pointarea_temporary_index].size.Width = (int)PointAreaW.Value;
-            int temp = pointarea_temporary_index;
-            UpdatePointAreaList(lh.settings.pointareas);
-            PointsAreasList.SelectedIndex = temp;
+            lh.settings.pointrects[pointrect_temporary_index].size.Width = (int)PointRectW.Value;
+            int temp = pointrect_temporary_index;
+            UpdatePointsRectsList(lh.settings.pointrects);
+            PointsRectsList.SelectedIndex = temp;
             lh.RegisterUserVariables();
         }
 
-        private void PointAreaH_ValueChanged(object sender, EventArgs e)
+        private void PointRectH_ValueChanged(object sender, EventArgs e)
         {
-            lh.settings.pointareas[pointarea_temporary_index].size.Height = (int)PointAreaH.Value;
-            int temp = pointarea_temporary_index;
-            UpdatePointAreaList(lh.settings.pointareas);
-            PointsAreasList.SelectedIndex = temp;
+            lh.settings.pointrects[pointrect_temporary_index].size.Height = (int)PointRectH.Value;
+            int temp = pointrect_temporary_index;
+            UpdatePointsRectsList(lh.settings.pointrects);
+            PointsRectsList.SelectedIndex = temp;
             lh.RegisterUserVariables();
         }
 
@@ -648,7 +648,16 @@ namespace IceBeam
             FunctionDetails.Hide();
             FunctionRemove.Hide();
         }
-        #endregion
 
+        private async void RunFunction()
+        {   
+            await lh.Run(lh.settings.functions[function_temporary_index]);
+        }
+
+        private void FunctionRun_Click(object sender, EventArgs e)
+        {
+            RunFunction();
+        }
+        #endregion
     }
 }

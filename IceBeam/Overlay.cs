@@ -65,7 +65,7 @@ namespace IceBeam
             }
             else if (type == 1)
             {
-                main.SetPointAreaProperties(rect.rect);
+                main.SetPointRectProperties(rect.rect);
                 main.Show();
                 this.Close();
             }
@@ -75,7 +75,7 @@ namespace IceBeam
             if (type == 2)
             {
                 this.Cursor = Cursors.Arrow;
-                main.SetPointAreaProperties(Cursor.Position);
+                main.SetPointRectProperties(Cursor.Position);
                 main.Show();
                 this.Close();
             }

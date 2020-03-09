@@ -96,12 +96,12 @@ namespace IceBeam
             {
                 lua["var_" + v.name] = v.value;
             }
-            foreach (PointArea pa in settings.pointareas)
+            foreach (PointRect pa in settings.pointrects)
             {
                 if (pa.type == 1)
                     lua["point_" + pa.name] = pa.point;
                 else
-                    lua["area_" + pa.name] = pa.GetRectangle();
+                    lua["rect_" + pa.name] = pa.GetRectangle();
             }
         }
 

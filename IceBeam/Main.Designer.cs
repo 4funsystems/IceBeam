@@ -90,27 +90,27 @@
             this.PatternNew = new System.Windows.Forms.Button();
             this.PatternsList = new System.Windows.Forms.ListBox();
             this.PatternRemove = new System.Windows.Forms.Button();
-            this.AreasPointsTab = new System.Windows.Forms.TabPage();
-            this.PointAreaDetails = new System.Windows.Forms.GroupBox();
-            this.PointAreaGet = new System.Windows.Forms.Button();
-            this.PointAreaSize = new System.Windows.Forms.Panel();
-            this.PointAreaH = new System.Windows.Forms.NumericUpDown();
-            this.PointAreaW = new System.Windows.Forms.NumericUpDown();
+            this.PointsRectsTab = new System.Windows.Forms.TabPage();
+            this.PointRectDetails = new System.Windows.Forms.GroupBox();
+            this.PointRectGet = new System.Windows.Forms.Button();
+            this.PointRectSize = new System.Windows.Forms.Panel();
+            this.PointRectH = new System.Windows.Forms.NumericUpDown();
+            this.PointRectW = new System.Windows.Forms.NumericUpDown();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.PointAreaLocation = new System.Windows.Forms.Panel();
-            this.PointAreaY = new System.Windows.Forms.NumericUpDown();
-            this.PointAreaX = new System.Windows.Forms.NumericUpDown();
+            this.PointRectLocation = new System.Windows.Forms.Panel();
+            this.PointRectY = new System.Windows.Forms.NumericUpDown();
+            this.PointRectX = new System.Windows.Forms.NumericUpDown();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.PointAreaType = new System.Windows.Forms.ComboBox();
+            this.PointRectType = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.PointAreaName = new System.Windows.Forms.TextBox();
+            this.PointRectName = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.PointsAreasListPanel = new System.Windows.Forms.Panel();
-            this.PointAreaNew = new System.Windows.Forms.Button();
-            this.PointsAreasList = new System.Windows.Forms.ListBox();
-            this.PointAreaRemove = new System.Windows.Forms.Button();
+            this.PointsRectsListPanel = new System.Windows.Forms.Panel();
+            this.PointRectNew = new System.Windows.Forms.Button();
+            this.PointsRectsList = new System.Windows.Forms.ListBox();
+            this.PointRectRemove = new System.Windows.Forms.Button();
             this.VariablesTab = new System.Windows.Forms.TabPage();
             this.VariableDetails = new System.Windows.Forms.GroupBox();
             this.VariableValue = new System.Windows.Forms.TextBox();
@@ -131,6 +131,7 @@
             this.FunctionsList = new System.Windows.Forms.ListBox();
             this.FunctionNew = new System.Windows.Forms.Button();
             this.FunctionRemove = new System.Windows.Forms.Button();
+            this.FunctionRun = new System.Windows.Forms.Button();
             this.TopMenu.SuspendLayout();
             this.MainControl.SuspendLayout();
             this.ScripterTab.SuspendLayout();
@@ -155,15 +156,15 @@
             this.PatternDetailsInfoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PatternCategory)).BeginInit();
             this.PatternsListPanel.SuspendLayout();
-            this.AreasPointsTab.SuspendLayout();
-            this.PointAreaDetails.SuspendLayout();
-            this.PointAreaSize.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PointAreaH)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PointAreaW)).BeginInit();
-            this.PointAreaLocation.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PointAreaY)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PointAreaX)).BeginInit();
-            this.PointsAreasListPanel.SuspendLayout();
+            this.PointsRectsTab.SuspendLayout();
+            this.PointRectDetails.SuspendLayout();
+            this.PointRectSize.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PointRectH)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PointRectW)).BeginInit();
+            this.PointRectLocation.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PointRectY)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PointRectX)).BeginInit();
+            this.PointsRectsListPanel.SuspendLayout();
             this.VariablesTab.SuspendLayout();
             this.VariableDetails.SuspendLayout();
             this.VariablesListPanel.SuspendLayout();
@@ -652,7 +653,7 @@
             // SettingsControl
             // 
             this.SettingsControl.Controls.Add(this.PatternsTab);
-            this.SettingsControl.Controls.Add(this.AreasPointsTab);
+            this.SettingsControl.Controls.Add(this.PointsRectsTab);
             this.SettingsControl.Controls.Add(this.VariablesTab);
             this.SettingsControl.Controls.Add(this.FunctionsTab);
             this.SettingsControl.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -827,92 +828,92 @@
             this.PatternRemove.Visible = false;
             this.PatternRemove.Click += new System.EventHandler(this.PatternRemove_Click);
             // 
-            // AreasPointsTab
+            // PointsRectsTab
             // 
-            this.AreasPointsTab.Controls.Add(this.PointAreaDetails);
-            this.AreasPointsTab.Controls.Add(this.PointsAreasListPanel);
-            this.AreasPointsTab.Location = new System.Drawing.Point(4, 25);
-            this.AreasPointsTab.Name = "AreasPointsTab";
-            this.AreasPointsTab.Padding = new System.Windows.Forms.Padding(3);
-            this.AreasPointsTab.Size = new System.Drawing.Size(959, 394);
-            this.AreasPointsTab.TabIndex = 1;
-            this.AreasPointsTab.Text = "Areas and points";
-            this.AreasPointsTab.UseVisualStyleBackColor = true;
+            this.PointsRectsTab.Controls.Add(this.PointRectDetails);
+            this.PointsRectsTab.Controls.Add(this.PointsRectsListPanel);
+            this.PointsRectsTab.Location = new System.Drawing.Point(4, 25);
+            this.PointsRectsTab.Name = "PointsRectsTab";
+            this.PointsRectsTab.Padding = new System.Windows.Forms.Padding(3);
+            this.PointsRectsTab.Size = new System.Drawing.Size(959, 394);
+            this.PointsRectsTab.TabIndex = 1;
+            this.PointsRectsTab.Text = "Points and Rectangles";
+            this.PointsRectsTab.UseVisualStyleBackColor = true;
             // 
-            // PointAreaDetails
+            // PointRectDetails
             // 
-            this.PointAreaDetails.Controls.Add(this.PointAreaGet);
-            this.PointAreaDetails.Controls.Add(this.PointAreaSize);
-            this.PointAreaDetails.Controls.Add(this.PointAreaLocation);
-            this.PointAreaDetails.Controls.Add(this.PointAreaType);
-            this.PointAreaDetails.Controls.Add(this.label8);
-            this.PointAreaDetails.Controls.Add(this.PointAreaName);
-            this.PointAreaDetails.Controls.Add(this.label5);
-            this.PointAreaDetails.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PointAreaDetails.Location = new System.Drawing.Point(303, 3);
-            this.PointAreaDetails.Name = "PointAreaDetails";
-            this.PointAreaDetails.Size = new System.Drawing.Size(653, 388);
-            this.PointAreaDetails.TabIndex = 9;
-            this.PointAreaDetails.TabStop = false;
-            this.PointAreaDetails.Text = "Area / Point details";
-            this.PointAreaDetails.Visible = false;
+            this.PointRectDetails.Controls.Add(this.PointRectGet);
+            this.PointRectDetails.Controls.Add(this.PointRectSize);
+            this.PointRectDetails.Controls.Add(this.PointRectLocation);
+            this.PointRectDetails.Controls.Add(this.PointRectType);
+            this.PointRectDetails.Controls.Add(this.label8);
+            this.PointRectDetails.Controls.Add(this.PointRectName);
+            this.PointRectDetails.Controls.Add(this.label5);
+            this.PointRectDetails.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PointRectDetails.Location = new System.Drawing.Point(303, 3);
+            this.PointRectDetails.Name = "PointRectDetails";
+            this.PointRectDetails.Size = new System.Drawing.Size(653, 388);
+            this.PointRectDetails.TabIndex = 9;
+            this.PointRectDetails.TabStop = false;
+            this.PointRectDetails.Text = "Point / Rectangle details";
+            this.PointRectDetails.Visible = false;
             // 
-            // PointAreaGet
+            // PointRectGet
             // 
-            this.PointAreaGet.Location = new System.Drawing.Point(446, 21);
-            this.PointAreaGet.Name = "PointAreaGet";
-            this.PointAreaGet.Size = new System.Drawing.Size(122, 23);
-            this.PointAreaGet.TabIndex = 7;
-            this.PointAreaGet.Text = "Get from screen";
-            this.PointAreaGet.UseVisualStyleBackColor = true;
-            this.PointAreaGet.Click += new System.EventHandler(this.PointAreaGet_Click);
+            this.PointRectGet.Location = new System.Drawing.Point(446, 21);
+            this.PointRectGet.Name = "PointRectGet";
+            this.PointRectGet.Size = new System.Drawing.Size(122, 23);
+            this.PointRectGet.TabIndex = 7;
+            this.PointRectGet.Text = "Get from screen";
+            this.PointRectGet.UseVisualStyleBackColor = true;
+            this.PointRectGet.Click += new System.EventHandler(this.PointRectGet_Click);
             // 
-            // PointAreaSize
+            // PointRectSize
             // 
-            this.PointAreaSize.Controls.Add(this.PointAreaH);
-            this.PointAreaSize.Controls.Add(this.PointAreaW);
-            this.PointAreaSize.Controls.Add(this.label13);
-            this.PointAreaSize.Controls.Add(this.label14);
-            this.PointAreaSize.Location = new System.Drawing.Point(6, 103);
-            this.PointAreaSize.Name = "PointAreaSize";
-            this.PointAreaSize.Size = new System.Drawing.Size(439, 42);
-            this.PointAreaSize.TabIndex = 5;
+            this.PointRectSize.Controls.Add(this.PointRectH);
+            this.PointRectSize.Controls.Add(this.PointRectW);
+            this.PointRectSize.Controls.Add(this.label13);
+            this.PointRectSize.Controls.Add(this.label14);
+            this.PointRectSize.Location = new System.Drawing.Point(6, 103);
+            this.PointRectSize.Name = "PointRectSize";
+            this.PointRectSize.Size = new System.Drawing.Size(439, 42);
+            this.PointRectSize.TabIndex = 5;
             // 
-            // PointAreaH
+            // PointRectH
             // 
-            this.PointAreaH.Location = new System.Drawing.Point(286, 10);
-            this.PointAreaH.Maximum = new decimal(new int[] {
+            this.PointRectH.Location = new System.Drawing.Point(286, 10);
+            this.PointRectH.Maximum = new decimal(new int[] {
             999999,
             0,
             0,
             0});
-            this.PointAreaH.Minimum = new decimal(new int[] {
+            this.PointRectH.Minimum = new decimal(new int[] {
             999999,
             0,
             0,
             -2147483648});
-            this.PointAreaH.Name = "PointAreaH";
-            this.PointAreaH.Size = new System.Drawing.Size(120, 22);
-            this.PointAreaH.TabIndex = 3;
-            this.PointAreaH.ValueChanged += new System.EventHandler(this.PointAreaH_ValueChanged);
+            this.PointRectH.Name = "PointRectH";
+            this.PointRectH.Size = new System.Drawing.Size(120, 22);
+            this.PointRectH.TabIndex = 3;
+            this.PointRectH.ValueChanged += new System.EventHandler(this.PointRectH_ValueChanged);
             // 
-            // PointAreaW
+            // PointRectW
             // 
-            this.PointAreaW.Location = new System.Drawing.Point(62, 10);
-            this.PointAreaW.Maximum = new decimal(new int[] {
+            this.PointRectW.Location = new System.Drawing.Point(62, 10);
+            this.PointRectW.Maximum = new decimal(new int[] {
             999999,
             0,
             0,
             0});
-            this.PointAreaW.Minimum = new decimal(new int[] {
+            this.PointRectW.Minimum = new decimal(new int[] {
             999999,
             0,
             0,
             -2147483648});
-            this.PointAreaW.Name = "PointAreaW";
-            this.PointAreaW.Size = new System.Drawing.Size(120, 22);
-            this.PointAreaW.TabIndex = 2;
-            this.PointAreaW.ValueChanged += new System.EventHandler(this.PointAreaW_ValueChanged);
+            this.PointRectW.Name = "PointRectW";
+            this.PointRectW.Size = new System.Drawing.Size(120, 22);
+            this.PointRectW.TabIndex = 2;
+            this.PointRectW.ValueChanged += new System.EventHandler(this.PointRectW_ValueChanged);
             // 
             // label13
             // 
@@ -932,52 +933,52 @@
             this.label14.TabIndex = 0;
             this.label14.Text = "Width";
             // 
-            // PointAreaLocation
+            // PointRectLocation
             // 
-            this.PointAreaLocation.Controls.Add(this.PointAreaY);
-            this.PointAreaLocation.Controls.Add(this.PointAreaX);
-            this.PointAreaLocation.Controls.Add(this.label10);
-            this.PointAreaLocation.Controls.Add(this.label9);
-            this.PointAreaLocation.Location = new System.Drawing.Point(7, 55);
-            this.PointAreaLocation.Name = "PointAreaLocation";
-            this.PointAreaLocation.Size = new System.Drawing.Size(439, 42);
-            this.PointAreaLocation.TabIndex = 4;
+            this.PointRectLocation.Controls.Add(this.PointRectY);
+            this.PointRectLocation.Controls.Add(this.PointRectX);
+            this.PointRectLocation.Controls.Add(this.label10);
+            this.PointRectLocation.Controls.Add(this.label9);
+            this.PointRectLocation.Location = new System.Drawing.Point(7, 55);
+            this.PointRectLocation.Name = "PointRectLocation";
+            this.PointRectLocation.Size = new System.Drawing.Size(439, 42);
+            this.PointRectLocation.TabIndex = 4;
             // 
-            // PointAreaY
+            // PointRectY
             // 
-            this.PointAreaY.Location = new System.Drawing.Point(286, 10);
-            this.PointAreaY.Maximum = new decimal(new int[] {
+            this.PointRectY.Location = new System.Drawing.Point(286, 10);
+            this.PointRectY.Maximum = new decimal(new int[] {
             999999,
             0,
             0,
             0});
-            this.PointAreaY.Minimum = new decimal(new int[] {
+            this.PointRectY.Minimum = new decimal(new int[] {
             999999,
             0,
             0,
             -2147483648});
-            this.PointAreaY.Name = "PointAreaY";
-            this.PointAreaY.Size = new System.Drawing.Size(120, 22);
-            this.PointAreaY.TabIndex = 3;
-            this.PointAreaY.ValueChanged += new System.EventHandler(this.PointAreaY_ValueChanged);
+            this.PointRectY.Name = "PointRectY";
+            this.PointRectY.Size = new System.Drawing.Size(120, 22);
+            this.PointRectY.TabIndex = 3;
+            this.PointRectY.ValueChanged += new System.EventHandler(this.PointRectY_ValueChanged);
             // 
-            // PointAreaX
+            // PointRectX
             // 
-            this.PointAreaX.Location = new System.Drawing.Point(62, 10);
-            this.PointAreaX.Maximum = new decimal(new int[] {
+            this.PointRectX.Location = new System.Drawing.Point(62, 10);
+            this.PointRectX.Maximum = new decimal(new int[] {
             999999,
             0,
             0,
             0});
-            this.PointAreaX.Minimum = new decimal(new int[] {
+            this.PointRectX.Minimum = new decimal(new int[] {
             999999,
             0,
             0,
             -2147483648});
-            this.PointAreaX.Name = "PointAreaX";
-            this.PointAreaX.Size = new System.Drawing.Size(120, 22);
-            this.PointAreaX.TabIndex = 2;
-            this.PointAreaX.ValueChanged += new System.EventHandler(this.PointAreaX_ValueChanged);
+            this.PointRectX.Name = "PointRectX";
+            this.PointRectX.Size = new System.Drawing.Size(120, 22);
+            this.PointRectX.TabIndex = 2;
+            this.PointRectX.ValueChanged += new System.EventHandler(this.PointRectX_ValueChanged);
             // 
             // label10
             // 
@@ -997,18 +998,18 @@
             this.label9.TabIndex = 0;
             this.label9.Text = "Pos X";
             // 
-            // PointAreaType
+            // PointRectType
             // 
-            this.PointAreaType.FormattingEnabled = true;
-            this.PointAreaType.Items.AddRange(new object[] {
+            this.PointRectType.FormattingEnabled = true;
+            this.PointRectType.Items.AddRange(new object[] {
             "Area",
             "Point"});
-            this.PointAreaType.Location = new System.Drawing.Point(320, 21);
-            this.PointAreaType.Name = "PointAreaType";
-            this.PointAreaType.Size = new System.Drawing.Size(121, 24);
-            this.PointAreaType.TabIndex = 3;
-            this.PointAreaType.Text = "Area";
-            this.PointAreaType.SelectedIndexChanged += new System.EventHandler(this.PointAreaType_SelectedIndexChanged);
+            this.PointRectType.Location = new System.Drawing.Point(320, 21);
+            this.PointRectType.Name = "PointRectType";
+            this.PointRectType.Size = new System.Drawing.Size(121, 24);
+            this.PointRectType.TabIndex = 3;
+            this.PointRectType.Text = "Area";
+            this.PointRectType.SelectedIndexChanged += new System.EventHandler(this.PointRectType_SelectedIndexChanged);
             // 
             // label8
             // 
@@ -1019,13 +1020,13 @@
             this.label8.TabIndex = 2;
             this.label8.Text = "Type";
             // 
-            // PointAreaName
+            // PointRectName
             // 
-            this.PointAreaName.Location = new System.Drawing.Point(69, 21);
-            this.PointAreaName.Name = "PointAreaName";
-            this.PointAreaName.Size = new System.Drawing.Size(173, 22);
-            this.PointAreaName.TabIndex = 1;
-            this.PointAreaName.TextChanged += new System.EventHandler(this.PointAreaName_TextChanged);
+            this.PointRectName.Location = new System.Drawing.Point(69, 21);
+            this.PointRectName.Name = "PointRectName";
+            this.PointRectName.Size = new System.Drawing.Size(173, 22);
+            this.PointRectName.TabIndex = 1;
+            this.PointRectName.TextChanged += new System.EventHandler(this.PointRectName_TextChanged);
             // 
             // label5
             // 
@@ -1036,48 +1037,48 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "Name";
             // 
-            // PointsAreasListPanel
+            // PointsRectsListPanel
             // 
-            this.PointsAreasListPanel.Controls.Add(this.PointAreaNew);
-            this.PointsAreasListPanel.Controls.Add(this.PointsAreasList);
-            this.PointsAreasListPanel.Controls.Add(this.PointAreaRemove);
-            this.PointsAreasListPanel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.PointsAreasListPanel.Location = new System.Drawing.Point(3, 3);
-            this.PointsAreasListPanel.Name = "PointsAreasListPanel";
-            this.PointsAreasListPanel.Size = new System.Drawing.Size(300, 388);
-            this.PointsAreasListPanel.TabIndex = 8;
+            this.PointsRectsListPanel.Controls.Add(this.PointRectNew);
+            this.PointsRectsListPanel.Controls.Add(this.PointsRectsList);
+            this.PointsRectsListPanel.Controls.Add(this.PointRectRemove);
+            this.PointsRectsListPanel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.PointsRectsListPanel.Location = new System.Drawing.Point(3, 3);
+            this.PointsRectsListPanel.Name = "PointsRectsListPanel";
+            this.PointsRectsListPanel.Size = new System.Drawing.Size(300, 388);
+            this.PointsRectsListPanel.TabIndex = 8;
             // 
-            // PointAreaNew
+            // PointRectNew
             // 
-            this.PointAreaNew.Location = new System.Drawing.Point(192, 3);
-            this.PointAreaNew.Name = "PointAreaNew";
-            this.PointAreaNew.Size = new System.Drawing.Size(105, 27);
-            this.PointAreaNew.TabIndex = 1;
-            this.PointAreaNew.Text = "New";
-            this.PointAreaNew.UseVisualStyleBackColor = true;
-            this.PointAreaNew.Click += new System.EventHandler(this.PointAreaNew_Click);
+            this.PointRectNew.Location = new System.Drawing.Point(192, 3);
+            this.PointRectNew.Name = "PointRectNew";
+            this.PointRectNew.Size = new System.Drawing.Size(105, 27);
+            this.PointRectNew.TabIndex = 1;
+            this.PointRectNew.Text = "New";
+            this.PointRectNew.UseVisualStyleBackColor = true;
+            this.PointRectNew.Click += new System.EventHandler(this.PointRectNew_Click);
             // 
-            // PointsAreasList
+            // PointsRectsList
             // 
-            this.PointsAreasList.Dock = System.Windows.Forms.DockStyle.Left;
-            this.PointsAreasList.FormattingEnabled = true;
-            this.PointsAreasList.ItemHeight = 16;
-            this.PointsAreasList.Location = new System.Drawing.Point(0, 0);
-            this.PointsAreasList.Name = "PointsAreasList";
-            this.PointsAreasList.Size = new System.Drawing.Size(186, 388);
-            this.PointsAreasList.TabIndex = 0;
-            this.PointsAreasList.SelectedIndexChanged += new System.EventHandler(this.PointsAreasList_SelectedIndexChanged);
+            this.PointsRectsList.Dock = System.Windows.Forms.DockStyle.Left;
+            this.PointsRectsList.FormattingEnabled = true;
+            this.PointsRectsList.ItemHeight = 16;
+            this.PointsRectsList.Location = new System.Drawing.Point(0, 0);
+            this.PointsRectsList.Name = "PointsRectsList";
+            this.PointsRectsList.Size = new System.Drawing.Size(186, 388);
+            this.PointsRectsList.TabIndex = 0;
+            this.PointsRectsList.SelectedIndexChanged += new System.EventHandler(this.PointsRectsList_SelectedIndexChanged);
             // 
-            // PointAreaRemove
+            // PointRectRemove
             // 
-            this.PointAreaRemove.Location = new System.Drawing.Point(192, 36);
-            this.PointAreaRemove.Name = "PointAreaRemove";
-            this.PointAreaRemove.Size = new System.Drawing.Size(105, 29);
-            this.PointAreaRemove.TabIndex = 2;
-            this.PointAreaRemove.Text = "Remove";
-            this.PointAreaRemove.UseVisualStyleBackColor = true;
-            this.PointAreaRemove.Visible = false;
-            this.PointAreaRemove.Click += new System.EventHandler(this.PointAreaRemove_Click);
+            this.PointRectRemove.Location = new System.Drawing.Point(192, 36);
+            this.PointRectRemove.Name = "PointRectRemove";
+            this.PointRectRemove.Size = new System.Drawing.Size(105, 29);
+            this.PointRectRemove.TabIndex = 2;
+            this.PointRectRemove.Text = "Remove";
+            this.PointRectRemove.UseVisualStyleBackColor = true;
+            this.PointRectRemove.Visible = false;
+            this.PointRectRemove.Click += new System.EventHandler(this.PointRectRemove_Click);
             // 
             // VariablesTab
             // 
@@ -1221,6 +1222,7 @@
             // FunctionDetailsInfoPanel
             // 
             this.FunctionDetailsInfoPanel.AutoScroll = true;
+            this.FunctionDetailsInfoPanel.Controls.Add(this.FunctionRun);
             this.FunctionDetailsInfoPanel.Controls.Add(this.label17);
             this.FunctionDetailsInfoPanel.Controls.Add(this.FunctionName);
             this.FunctionDetailsInfoPanel.Dock = System.Windows.Forms.DockStyle.Top;
@@ -1289,6 +1291,16 @@
             this.FunctionRemove.Visible = false;
             this.FunctionRemove.Click += new System.EventHandler(this.FunctionRemove_Click);
             // 
+            // FunctionRun
+            // 
+            this.FunctionRun.Location = new System.Drawing.Point(557, 9);
+            this.FunctionRun.Name = "FunctionRun";
+            this.FunctionRun.Size = new System.Drawing.Size(75, 23);
+            this.FunctionRun.TabIndex = 2;
+            this.FunctionRun.Text = "Run";
+            this.FunctionRun.UseVisualStyleBackColor = true;
+            this.FunctionRun.Click += new System.EventHandler(this.FunctionRun_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1328,18 +1340,18 @@
             this.PatternDetailsInfoPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PatternCategory)).EndInit();
             this.PatternsListPanel.ResumeLayout(false);
-            this.AreasPointsTab.ResumeLayout(false);
-            this.PointAreaDetails.ResumeLayout(false);
-            this.PointAreaDetails.PerformLayout();
-            this.PointAreaSize.ResumeLayout(false);
-            this.PointAreaSize.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PointAreaH)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PointAreaW)).EndInit();
-            this.PointAreaLocation.ResumeLayout(false);
-            this.PointAreaLocation.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PointAreaY)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PointAreaX)).EndInit();
-            this.PointsAreasListPanel.ResumeLayout(false);
+            this.PointsRectsTab.ResumeLayout(false);
+            this.PointRectDetails.ResumeLayout(false);
+            this.PointRectDetails.PerformLayout();
+            this.PointRectSize.ResumeLayout(false);
+            this.PointRectSize.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PointRectH)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PointRectW)).EndInit();
+            this.PointRectLocation.ResumeLayout(false);
+            this.PointRectLocation.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PointRectY)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PointRectX)).EndInit();
+            this.PointsRectsListPanel.ResumeLayout(false);
             this.VariablesTab.ResumeLayout(false);
             this.VariableDetails.ResumeLayout(false);
             this.VariableDetails.PerformLayout();
@@ -1368,7 +1380,7 @@
         private System.Windows.Forms.TabPage SettingsTab;
         private System.Windows.Forms.TabControl SettingsControl;
         private System.Windows.Forms.TabPage PatternsTab;
-        private System.Windows.Forms.TabPage AreasPointsTab;
+        private System.Windows.Forms.TabPage PointsRectsTab;
         private System.Windows.Forms.TabPage VariablesTab;
         private System.Windows.Forms.TabPage FunctionsTab;
         private System.Windows.Forms.TabControl ScripterControl;
@@ -1407,11 +1419,11 @@
         private System.Windows.Forms.Button PatternNew;
         private System.Windows.Forms.ListBox PatternsList;
         private System.Windows.Forms.Button PatternRemove;
-        private System.Windows.Forms.GroupBox PointAreaDetails;
-        private System.Windows.Forms.Panel PointsAreasListPanel;
-        private System.Windows.Forms.Button PointAreaNew;
-        private System.Windows.Forms.ListBox PointsAreasList;
-        private System.Windows.Forms.Button PointAreaRemove;
+        private System.Windows.Forms.GroupBox PointRectDetails;
+        private System.Windows.Forms.Panel PointsRectsListPanel;
+        private System.Windows.Forms.Button PointRectNew;
+        private System.Windows.Forms.ListBox PointsRectsList;
+        private System.Windows.Forms.Button PointRectRemove;
         private System.Windows.Forms.GroupBox VariableDetails;
         private System.Windows.Forms.Panel VariablesListPanel;
         private System.Windows.Forms.Button VariableNew;
@@ -1432,20 +1444,20 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox PatternName;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button PointAreaGet;
-        private System.Windows.Forms.Panel PointAreaSize;
-        private System.Windows.Forms.NumericUpDown PointAreaH;
-        private System.Windows.Forms.NumericUpDown PointAreaW;
+        private System.Windows.Forms.Button PointRectGet;
+        private System.Windows.Forms.Panel PointRectSize;
+        private System.Windows.Forms.NumericUpDown PointRectH;
+        private System.Windows.Forms.NumericUpDown PointRectW;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Panel PointAreaLocation;
-        private System.Windows.Forms.NumericUpDown PointAreaY;
-        private System.Windows.Forms.NumericUpDown PointAreaX;
+        private System.Windows.Forms.Panel PointRectLocation;
+        private System.Windows.Forms.NumericUpDown PointRectY;
+        private System.Windows.Forms.NumericUpDown PointRectX;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ComboBox PointAreaType;
+        private System.Windows.Forms.ComboBox PointRectType;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox PointAreaName;
+        private System.Windows.Forms.TextBox PointRectName;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox VariableValue;
         private System.Windows.Forms.Label label16;
@@ -1459,6 +1471,7 @@
         private System.Windows.Forms.Button KeyScriptSetKey;
         private System.Windows.Forms.CheckBox KeyScriptEnabled;
         private System.Windows.Forms.ListBox PersScriptsList;
+        private System.Windows.Forms.Button FunctionRun;
     }
 }
 
