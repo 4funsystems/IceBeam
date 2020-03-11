@@ -13,7 +13,6 @@ IceBeam/[Rr]elease/
 IceBeam/x64/
 IceBeam/.vs/
 IceBeam/.vs/IceBeam/v16/
-IceBeam/[Bb]in/
 IceBeam/[Oo]bj/
 
 # MSTest test Results
@@ -134,3 +133,5 @@ $RECYCLE.BIN/
 
 _NCrunch*
 IceBeam/.vs/IceBeam/v16/.suo
+IceBeam/bin/Debug/IceBeam.exe.config
+IceBeam/bin/Debug/IceBeam.exe
