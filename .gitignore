@@ -11,7 +11,8 @@
 IceBeam/[Dd]ebug/
 IceBeam/[Rr]elease/
 IceBeam/x64/
-IceBeam\.vs
+IceBeam/.vs/
+IceBeam/.vs/IceBeam/v16/
 IceBeam/[Bb]in/
 IceBeam/[Oo]bj/
 
@@ -132,3 +133,4 @@ $RECYCLE.BIN/
 .DS_Store
 
 _NCrunch*
+IceBeam/.vs/IceBeam/v16/.suo
