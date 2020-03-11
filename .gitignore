@@ -11,7 +11,7 @@
 IceBeam/[Dd]ebug/
 IceBeam/[Rr]elease/
 IceBeam/x64/
-IceBeam/.vs/
+IceBeam\.vs
 IceBeam/[Bb]in/
 IceBeam/[Oo]bj/
 

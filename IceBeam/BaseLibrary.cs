@@ -45,6 +45,7 @@ namespace IceBeam
             luahandler.lua.RegisterFunction("wait", this, this.GetType().GetMethod("Wait"));
             luahandler.lua.RegisterFunction("pattern", this, this.GetType().GetMethod("pattern"));
             luahandler.lua.RegisterFunction("savepattern", this, this.GetType().GetMethod("SavePattern"));
+            luahandler.lua.RegisterFunction("getpixel", this, this.GetType().GetMethod("GetPixel"));
 
 
         }
@@ -169,6 +170,10 @@ namespace IceBeam
         {
             luahandler.settings.patterns.Add(pattern);
             luahandler.main.UpdateForm(luahandler.settings);
+        }
+        public Color GetPixel(Bitmap bmp, int i, int j)
+        {
+            return bmp.GetPixel(i, j);
         }
 
     }
