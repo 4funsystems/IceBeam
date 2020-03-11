@@ -11,6 +11,7 @@
 IceBeam/[Dd]ebug/
 IceBeam/[Rr]elease/
 IceBeam/x64/
+IceBeam/.vs/
 IceBeam/[Bb]in/
 IceBeam/[Oo]bj/
 
@@ -61,12 +62,12 @@ IceBeam/ipch/
 *.gpState
 
 # ReSharper is a .NET coding add-in
-_ReSharper*/
+IceBeam/_ReSharper*/
 *.[Rr]e[Ss]harper
 *.DotSettings.user
 
 # Click-Once directory
-publish/
+IceBeam/publish/
 
 # Publish Web Output
 *.Publish.xml
